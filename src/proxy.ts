@@ -1,9 +1,23 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import createIntlMiddleware from "next-intl/middleware";
+import { routing } from "@/i18n/routing";
 
-// Only guards /admin for now. Once Phase 1 adds the [locale] tree, this file grows
-// a second branch running next-intl's middleware for everything else — see the plan.
+const intlMiddleware = createIntlMiddleware(routing);
+
+// Branches by path: /admin/** gets Supabase session-refresh + auth redirects (no i18n —
+// it's a single-language internal tool). Everything else gets next-intl's locale
+// negotiation. Next.js only allows one middleware/proxy file, hence the branch here
+// rather than two separate files.
 export async function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname.startsWith("/admin")) {
+    return handleAdminAuth(request);
+  }
+
+  return intlMiddleware(request);
+}
+
+async function handleAdminAuth(request: NextRequest) {
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient(
@@ -43,5 +57,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };

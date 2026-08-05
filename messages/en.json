@@ -1,0 +1,209 @@
+{
+  "common": {
+    "brand": "Bayt Languages",
+    "whatsapp": "Chat on WhatsApp",
+    "language": "Language"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "verify": "Verify a document"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Certified translation, delivered with precision",
+      "title": "Language is a bridge. We build it with craftsmanship.",
+      "subtitle": "Bayt Languages delivers certified, notarized, and specialist translations for individuals, businesses, and government bodies — reviewed by professional linguists and backed by a verifiable digital certificate on every document.",
+      "cta": "Start on WhatsApp",
+      "secondaryCta": "Explore our services"
+    },
+    "trust": {
+      "eyebrow": "Why Bayt Languages",
+      "title": "Precision you can verify, service you can rely on",
+      "items": [
+        {
+          "title": "Certified & notarized",
+          "description": "Every translation carries the classification it requires — certified, notarized, or sworn — recognized by the institutions that request it."
+        },
+        {
+          "title": "Human expertise",
+          "description": "Legal, medical, academic, and business documents are matched with linguists who specialize in that exact domain."
+        },
+        {
+          "title": "Digital verification",
+          "description": "Each delivered document ships with a QR-linked certificate confirming authenticity, translation dates, and file integrity."
+        },
+        {
+          "title": "Confidential by default",
+          "description": "Your documents and identity are handled with strict confidentiality — visible only to the extent you choose."
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "What we translate",
+      "title": "Specialist translation across every domain that matters",
+      "items": [
+        {
+          "title": "Legal documents",
+          "description": "Contracts, court rulings, powers of attorney, and legal correspondence, translated with terminological precision."
+        },
+        {
+          "title": "Medical records",
+          "description": "Clinical reports, prescriptions, and medical histories, handled with the care patient records demand."
+        },
+        {
+          "title": "Academic credentials",
+          "description": "Diplomas, transcripts, and research papers prepared for university admissions and accreditation bodies."
+        },
+        {
+          "title": "Business & commercial",
+          "description": "Financial statements, agreements, and corporate documentation for cross-border business."
+        },
+        {
+          "title": "Government & personal",
+          "description": "Birth certificates, identification documents, and immigration paperwork, certified for official use."
+        },
+        {
+          "title": "Notarized & sworn",
+          "description": "Translations carrying the additional legal weight required by embassies, courts, and notaries."
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "How it works",
+      "title": "From first message to verified certificate",
+      "steps": [
+        {
+          "title": "Message us on WhatsApp",
+          "description": "Send your document and agree on scope, languages, and timeline directly with our team."
+        },
+        {
+          "title": "We translate & review",
+          "description": "A specialist translator and a second-pass reviewer complete your document to the classification you need."
+        },
+        {
+          "title": "Receive your verified file",
+          "description": "Your translated PDF arrives with a scannable certificate — proof of authenticity, anytime, anywhere."
+        }
+      ]
+    },
+    "verification": {
+      "eyebrow": "Trust, built in",
+      "title": "Every translation, verifiable in seconds",
+      "description": "Scan the QR code on any Bayt Languages certificate to confirm document details, translation dates, and file integrity — instantly, from any device.",
+      "cta": "Verify a document"
+    },
+    "finalCta": {
+      "title": "Ready to get started?",
+      "subtitle": "Send us your document on WhatsApp and we'll take it from there.",
+      "cta": "Start on WhatsApp"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About us",
+      "title": "A translation house built on craft, not shortcuts",
+      "subtitle": "Bayt Languages was founded on a simple premise: a translation is only as good as the trust placed in it. Every document we deliver is reviewed, classified, and — where required — certified or notarized to the standard our clients' institutions expect."
+    },
+    "values": {
+      "title": "What guides our work",
+      "items": [
+        {
+          "title": "Accuracy first",
+          "description": "Every translation goes through specialist translation and independent review before delivery."
+        },
+        {
+          "title": "Transparency",
+          "description": "Clear classification, clear timelines, and a verifiable certificate for every document we issue."
+        },
+        {
+          "title": "Confidentiality",
+          "description": "Your documents are handled under strict confidentiality from the moment you send them to us."
+        }
+      ]
+    }
+  },
+  "services": {
+    "hero": {
+      "eyebrow": "Services",
+      "title": "Translation services for every requirement",
+      "subtitle": "Whichever classification your document requires — standard, certified, notarized, or sworn — our process is built to deliver it correctly the first time."
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let's talk about your document",
+      "subtitle": "The fastest way to reach us is WhatsApp. Send your file, and our team will confirm languages, timeline, and pricing directly with you."
+    },
+    "cta": "Message us on WhatsApp",
+    "note": "No forms, no accounts — just a conversation with our team."
+  },
+  "verify": {
+    "brand": "Bayt Languages — Digital Translation Verification",
+    "status": {
+      "verified": "Verified",
+      "revoked": "Revoked",
+      "expired": "Expired"
+    },
+    "fields": {
+      "client": "Client",
+      "clientType": "Client type",
+      "category": "Document category",
+      "classification": "Classification",
+      "originalLanguage": "Original language",
+      "translatedLanguage": "Translated language",
+      "originalPages": "Original pages",
+      "translatedPages": "Translated pages",
+      "requested": "Requested",
+      "translationStarted": "Translation started",
+      "translationCompleted": "Translation completed",
+      "reviewCompleted": "Review completed",
+      "delivered": "Delivered",
+      "certificationNumber": "Certification number"
+    },
+    "enums": {
+      "clientType": {
+        "individual": "Individual",
+        "business": "Business",
+        "government": "Government",
+        "organization": "Organization",
+        "other": "Other"
+      },
+      "category": {
+        "legal": "Legal",
+        "medical": "Medical",
+        "academic": "Academic",
+        "business": "Business",
+        "personal": "Personal",
+        "government": "Government",
+        "other": "Other"
+      },
+      "classification": {
+        "certified": "Certified",
+        "notarized": "Notarized",
+        "standard": "Standard",
+        "sworn": "Sworn"
+      }
+    },
+    "fileIntegrity": "File integrity",
+    "currentVersion": "Current version",
+    "fingerprint": "SHA-256 fingerprint",
+    "versionHistory": "Version history",
+    "legalNoticeTitle": "Legal notice",
+    "legalNoticeBody": "This certificate confirms that the document described above was translated and issued by Bayt Languages. This verification page and its contents are provided for the sole purpose of confirming the authenticity of the translation. Any alteration of the translated document invalidates this verification. For questions regarding this certificate, please contact Bayt Languages directly.",
+    "issuedBy": "Issued by Bayt Languages",
+    "download": "Download translated document",
+    "downloadCertificate": "Download verification certificate (PDF)",
+    "unlock": "Unlock",
+    "enterPin": "Enter PIN",
+    "notFoundTitle": "Verification not found",
+    "notFoundBody": "This reference code doesn't match any verification record. Please check the code and try again."
+  },
+  "footer": {
+    "tagline": "Certified translation, verified by design.",
+    "rights": "All rights reserved."
+  }
+}

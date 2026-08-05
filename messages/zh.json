@@ -1,0 +1,209 @@
+{
+  "common": {
+    "brand": "Bayt Languages 语言之家",
+    "whatsapp": "通过 WhatsApp 联系我们",
+    "language": "语言"
+  },
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "services": "服务项目",
+    "contact": "联系我们",
+    "verify": "验证文件"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "认证翻译，精准专业",
+      "title": "语言是一座桥梁，我们以匠心搭建。",
+      "subtitle": "Bayt Languages 为个人、企业及政府机构提供认证翻译、公证翻译及专业领域翻译服务，由资深译员审校完成，每份文件均附带可在线验证的数字证书。",
+      "cta": "通过 WhatsApp 开始",
+      "secondaryCta": "了解我们的服务"
+    },
+    "trust": {
+      "eyebrow": "为什么选择 Bayt Languages",
+      "title": "可验证的精准，值得信赖的服务",
+      "items": [
+        {
+          "title": "认证与公证",
+          "description": "每份译文均按所需类型完成认证、公证或宣誓翻译，获相关机构认可。"
+        },
+        {
+          "title": "专业译员团队",
+          "description": "法律、医疗、学术及商业文件均由该领域的专业译员负责翻译。"
+        },
+        {
+          "title": "数字化验证",
+          "description": "每份交付文件均附带二维码证书，用于确认真实性、翻译日期及文件完整性。"
+        },
+        {
+          "title": "默认严格保密",
+          "description": "您的文件与身份信息将被严格保密处理，仅按您的意愿予以展示。"
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "翻译领域",
+      "title": "覆盖各专业领域的翻译服务",
+      "items": [
+        {
+          "title": "法律文件",
+          "description": "合同、判决书、授权委托书及法律函件，术语精准严谨。"
+        },
+        {
+          "title": "医疗记录",
+          "description": "临床报告、处方及病历资料，以医疗记录应有的严谨态度处理。"
+        },
+        {
+          "title": "学历证明",
+          "description": "文凭、成绩单及学术论文，满足高校录取及认证机构要求。"
+        },
+        {
+          "title": "商业与贸易文件",
+          "description": "财务报表、协议及企业文件，服务于跨境商务往来。"
+        },
+        {
+          "title": "政府与个人文件",
+          "description": "出生证明、身份证件及移民材料，提供官方认证翻译。"
+        },
+        {
+          "title": "公证与宣誓翻译",
+          "description": "满足使领馆、法院及公证机构要求的具有法律效力的翻译。"
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "服务流程",
+      "title": "从第一条消息到验证证书",
+      "steps": [
+        {
+          "title": "通过 WhatsApp 联系我们",
+          "description": "发送您的文件，与我们的团队直接确认范围、语言及交付时间。"
+        },
+        {
+          "title": "翻译与审校",
+          "description": "由专业译员完成翻译，并经二次审校，确保达到所需的认证类型。"
+        },
+        {
+          "title": "收到已验证的文件",
+          "description": "您将收到附带可扫描证书的译文 PDF —— 随时随地证明其真实性。"
+        }
+      ]
+    },
+    "verification": {
+      "eyebrow": "内置的信任机制",
+      "title": "每份译文，均可秒级验证",
+      "description": "扫描 Bayt Languages 证书上的二维码，即可即时确认文件详情、翻译日期及文件完整性 —— 任何设备均可查看。",
+      "cta": "验证文件"
+    },
+    "finalCta": {
+      "title": "准备好开始了吗？",
+      "subtitle": "通过 WhatsApp 将您的文件发送给我们，其余交给我们处理。",
+      "cta": "通过 WhatsApp 开始"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "关于我们",
+      "title": "以匠心而非捷径构建的翻译机构",
+      "subtitle": "Bayt Languages 的信念很简单：译文的价值取决于人们对它的信任程度。我们交付的每一份文件都经过审校与分类，并在需要时按客户所在机构要求完成认证或公证。"
+    },
+    "values": {
+      "title": "我们的工作准则",
+      "items": [
+        {
+          "title": "精准为先",
+          "description": "每份译文在交付前均经过专业翻译及独立审校。"
+        },
+        {
+          "title": "透明公开",
+          "description": "明确的分类、明确的交付时间，以及每份文件均附带的可验证证书。"
+        },
+        {
+          "title": "严格保密",
+          "description": "自您将文件发送给我们的那一刻起，我们即以严格保密标准处理。"
+        }
+      ]
+    }
+  },
+  "services": {
+    "hero": {
+      "eyebrow": "服务项目",
+      "title": "满足各类需求的翻译服务",
+      "subtitle": "无论您的文件需要哪种类型 —— 普通翻译、认证翻译、公证翻译或宣誓翻译 —— 我们的流程都能确保一次性准确交付。"
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "联系我们",
+      "title": "让我们聊聊您的文件",
+      "subtitle": "联系我们最快捷的方式是 WhatsApp。发送您的文件，我们的团队将直接与您确认语言、交付时间及费用。"
+    },
+    "cta": "通过 WhatsApp 联系我们",
+    "note": "无需填写表单，无需注册账户 —— 直接与我们的团队沟通。"
+  },
+  "verify": {
+    "brand": "Bayt Languages — 数字翻译验证",
+    "status": {
+      "verified": "已验证",
+      "revoked": "已撤销",
+      "expired": "已过期"
+    },
+    "fields": {
+      "client": "客户",
+      "clientType": "客户类型",
+      "category": "文件类别",
+      "classification": "翻译类型",
+      "originalLanguage": "原文语言",
+      "translatedLanguage": "译文语言",
+      "originalPages": "原文页数",
+      "translatedPages": "译文页数",
+      "requested": "委托日期",
+      "translationStarted": "翻译开始日期",
+      "translationCompleted": "翻译完成日期",
+      "reviewCompleted": "审校完成日期",
+      "delivered": "交付日期",
+      "certificationNumber": "认证编号"
+    },
+    "enums": {
+      "clientType": {
+        "individual": "个人",
+        "business": "企业",
+        "government": "政府机构",
+        "organization": "组织机构",
+        "other": "其他"
+      },
+      "category": {
+        "legal": "法律",
+        "medical": "医疗",
+        "academic": "学术",
+        "business": "商业",
+        "personal": "个人",
+        "government": "政府",
+        "other": "其他"
+      },
+      "classification": {
+        "certified": "认证翻译",
+        "notarized": "公证翻译",
+        "standard": "普通翻译",
+        "sworn": "宣誓翻译"
+      }
+    },
+    "fileIntegrity": "文件完整性",
+    "currentVersion": "当前版本",
+    "fingerprint": "SHA-256 指纹",
+    "versionHistory": "版本历史",
+    "legalNoticeTitle": "法律声明",
+    "legalNoticeBody": "本证书确认上述文件已由 Bayt Languages 翻译并出具。本验证页面及其内容仅用于确认译文的真实性。对译文的任何篡改均将导致本验证失效。如对本证书有任何疑问，请直接联系 Bayt Languages。",
+    "issuedBy": "由 Bayt Languages 出具",
+    "download": "下载译文文件",
+    "downloadCertificate": "下载验证证书（PDF）",
+    "unlock": "解锁",
+    "enterPin": "请输入密码",
+    "notFoundTitle": "未找到验证记录",
+    "notFoundBody": "该验证码不匹配任何验证记录。请核对验证码后重试。"
+  },
+  "footer": {
+    "tagline": "认证翻译，设计即验证。",
+    "rights": "版权所有。"
+  }
+}

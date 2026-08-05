@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { generateCertificatePdf } from "@/lib/certificate/generate";
 import { maskClientName, type VisibilityMode } from "@/lib/documents/mask-name";
+import { routing } from "@/i18n/routing";
 
 const SIGNED_URL_TTL_SECONDS = 90;
 
@@ -58,7 +59,7 @@ export async function GET(
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  const verifyUrl = `${siteUrl}/verify/${normalizedCode}`;
+  const verifyUrl = `${siteUrl}/${routing.defaultLocale}/verify/${normalizedCode}`;
 
   const pdfBuffer = await generateCertificatePdf(
     {

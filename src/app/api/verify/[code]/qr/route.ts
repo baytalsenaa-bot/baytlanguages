@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import QRCode from "qrcode";
+import { routing } from "@/i18n/routing";
 
 // Deterministic for a given code — the QR just encodes a URL, so this is safe to
 // cache aggressively rather than pre-generating and storing it in Storage.
@@ -11,7 +12,7 @@ export async function GET(
   const normalizedCode = code.trim().toUpperCase();
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  const verifyUrl = `${siteUrl}/verify/${normalizedCode}`;
+  const verifyUrl = `${siteUrl}/${routing.defaultLocale}/verify/${normalizedCode}`;
 
   const png = await QRCode.toBuffer(verifyUrl, {
     type: "png",

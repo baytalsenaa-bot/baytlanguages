@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
 
 export function DownloadButton({
   code,
@@ -9,6 +10,7 @@ export function DownloadButton({
   code: string;
   pinRequired: boolean;
 }) {
+  const t = useTranslations("verify");
   const [showPinInput, setShowPinInput] = useState(false);
   const [pin, setPin] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,8 +29,7 @@ export function DownloadButton({
     setIsSubmitting(false);
 
     if (!response.ok) {
-      const body = await response.json().catch(() => null);
-      setError(body?.error ?? "This document is not available for download.");
+      setError(t("notAvailable"));
       return;
     }
 
@@ -49,26 +50,25 @@ export function DownloadButton({
     void requestDownload(pin);
   }
 
+  const buttonClass =
+    "rounded-md bg-brand-gold px-5 py-2.5 text-sm font-semibold text-brand-ink transition-opacity hover:opacity-90 disabled:opacity-50";
+
   if (showPinInput) {
     return (
       <form onSubmit={handlePinSubmit} className="flex flex-col items-center gap-2">
-        {error && <p className="text-sm text-red-300">{error}</p>}
+        {error && <p className="text-sm text-red-400">{error}</p>}
         <div className="flex gap-2">
           <input
             type="password"
             inputMode="numeric"
-            placeholder="Enter PIN"
+            placeholder={t("enterPin")}
             value={pin}
             onChange={(event) => setPin(event.target.value)}
-            className="w-32 rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm text-neutral-100"
+            className="w-32 rounded-md border border-brand-border bg-brand-surface px-3 py-2 text-sm text-brand-parchment"
             autoFocus
           />
-          <button
-            type="submit"
-            disabled={isSubmitting || pin.length === 0}
-            className="rounded-md bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 disabled:opacity-50"
-          >
-            {isSubmitting ? "Checking…" : "Unlock"}
+          <button type="submit" disabled={isSubmitting || pin.length === 0} className={buttonClass}>
+            {t("unlock")}
           </button>
         </div>
       </form>
@@ -77,14 +77,9 @@ export function DownloadButton({
 
   return (
     <div className="flex flex-col items-center gap-2">
-      {error && <p className="text-sm text-red-300">{error}</p>}
-      <button
-        type="button"
-        onClick={handleClick}
-        disabled={isSubmitting}
-        className="rounded-md bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 disabled:opacity-50"
-      >
-        {isSubmitting ? "Preparing…" : "Download translated document"}
+      {error && <p className="text-sm text-red-400">{error}</p>}
+      <button type="button" onClick={handleClick} disabled={isSubmitting} className={buttonClass}>
+        {t("download")}
       </button>
     </div>
   );

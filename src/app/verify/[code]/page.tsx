@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { DownloadButton } from "./DownloadButton";
 
 type VerificationView = {
   reference_code: string;
@@ -100,6 +101,14 @@ export default async function VerificationPage({
           <p className="mt-3 font-mono text-lg text-neutral-300">
             {record.reference_code}
           </p>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`/api/verify/${record.reference_code}/qr`}
+            alt="QR code linking to this verification page"
+            width={160}
+            height={160}
+            className="mx-auto mt-4 rounded-lg border border-neutral-800 bg-white p-2"
+          />
         </header>
 
         <section className="rounded-xl border border-neutral-800 bg-neutral-900 p-6">
@@ -156,6 +165,15 @@ export default async function VerificationPage({
             </div>
           </dl>
         </section>
+
+        {record.status === "verified" && (
+          <section className="rounded-xl border border-neutral-800 bg-neutral-900 p-6 text-center">
+            <DownloadButton
+              code={record.reference_code}
+              pinRequired={record.pin_enabled}
+            />
+          </section>
+        )}
 
         {history.length > 0 && (
           <section className="rounded-xl border border-neutral-800 bg-neutral-900 p-6">

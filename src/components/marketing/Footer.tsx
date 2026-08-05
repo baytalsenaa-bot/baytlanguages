@@ -5,6 +5,7 @@ export function Footer() {
   const t = useTranslations("nav");
   const tc = useTranslations("common");
   const tf = useTranslations("footer");
+  const tContact = useTranslations("contact");
   const year = new Date().getFullYear();
 
   const links = [
@@ -21,6 +22,7 @@ export function Footer() {
           <div>
             <p className="text-lg font-semibold text-brand-parchment">{tc("brand")}</p>
             <p className="mt-2 max-w-xs text-sm text-brand-muted">{tf("tagline")}</p>
+            <p className="mt-3 max-w-xs text-xs text-brand-muted">{tContact("address")}</p>
           </div>
 
           <nav className="flex flex-wrap gap-6">

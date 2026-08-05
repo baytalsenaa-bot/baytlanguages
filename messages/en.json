@@ -170,7 +170,10 @@
       "subtitle": "The fastest way to reach us is WhatsApp. Send your file, and our team will confirm languages, timeline, and pricing directly with you."
     },
     "cta": "Message us on WhatsApp",
-    "note": "No forms, no accounts — just a conversation with our team."
+    "note": "No forms, no accounts — just a conversation with our team.",
+    "addressLabel": "Our office",
+    "address": "90th Street South, The Fifth Settlement, New Cairo, Egypt",
+    "mapCta": "View on Google Maps"
   },
   "verify": {
     "brand": "Bayt Languages — Digital Translation Verification",

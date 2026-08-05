@@ -104,3 +104,53 @@ export function StampIcon({ className = base }: IconProps) {
     </svg>
   );
 }
+
+export function GovBuildingIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className={className}>
+      <path d="M3 9l9-5 9 5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5 9v10M9 9v10M15 9v10M19 9v10" strokeLinecap="round" />
+      <path d="M3 19h18" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function ConstructionIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className={className}>
+      <path d="M4 21V9l6-4 6 4v12" strokeLinejoin="round" />
+      <path d="M14 21V13l6-3v11" strokeLinejoin="round" />
+      <path d="M4 21h16" strokeLinecap="round" />
+      <path d="M8 13h2M8 17h2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function BoltIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className={className}>
+      <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" strokeLinejoin="round" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function SignalIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className={className}>
+      <path d="M3 11a13 13 0 0 1 18 0" strokeLinecap="round" />
+      <path d="M6.5 14.5a8 8 0 0 1 11 0" strokeLinecap="round" />
+      <path d="M10 18a3.5 3.5 0 0 1 4 0" strokeLinecap="round" />
+      <circle cx="12" cy="20.5" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function FactoryIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className={className}>
+      <path d="M3 21V11l5 3v-3l5 3v-3l5 3v7Z" strokeLinejoin="round" />
+      <path d="M3 21h18" strokeLinecap="round" />
+      <path d="M7 17v2M11 17v2M15 17v2" strokeLinecap="round" />
+    </svg>
+  );
+}

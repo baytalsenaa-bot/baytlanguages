@@ -3,6 +3,7 @@ import { Hero } from "@/components/marketing/Hero";
 import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { ProcessSteps } from "@/components/marketing/ProcessSteps";
 import { VerificationTeaser } from "@/components/marketing/VerificationTeaser";
+import { SectorsMarquee } from "@/components/marketing/SectorsMarquee";
 import { FaqAccordion } from "@/components/marketing/FaqAccordion";
 import { FinalCta } from "@/components/marketing/FinalCta";
 import {
@@ -53,6 +54,11 @@ export default async function HomePage({
         items={trustItems}
         icons={trustIcons}
         columns={2}
+      />
+      <SectorsMarquee
+        eyebrow={t("sectors.eyebrow")}
+        title={t("sectors.title")}
+        items={t.raw("sectors.items") as string[]}
       />
       <FeatureGrid
         eyebrow={t("services.eyebrow")}

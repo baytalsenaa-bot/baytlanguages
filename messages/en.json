@@ -42,6 +42,18 @@
         }
       ]
     },
+    "sectors": {
+      "eyebrow": "Trusted across every major sector",
+      "title": "From government ministries to global enterprises",
+      "items": [
+        "Government & Ministries",
+        "Banking & Finance",
+        "Real Estate & Construction",
+        "Energy & Petroleum",
+        "Telecom & Technology",
+        "Industry & Trade"
+      ]
+    },
     "services": {
       "eyebrow": "What we translate",
       "title": "Specialist translation across every domain that matters",
@@ -113,8 +125,16 @@
           "answer": "It depends on the document's length, language pair, and classification. Our team will give you a clear timeline on WhatsApp once we've reviewed your document — before any work begins."
         },
         {
+          "question": "Can I rely on your certified translation with embassies and government bodies?",
+          "answer": "Yes — our certified and notarized translations are prepared to the standard embassies, courts, and government bodies expect. We always recommend confirming with the receiving institution, and we'll help you pick the exact classification their requirements call for."
+        },
+        {
           "question": "How do I know a translated document is genuinely from Bayt Languages?",
           "answer": "Every completed translation ships with a QR code linking to a public verification page confirming document details, translation dates, and a SHA-256 fingerprint proving the file hasn't been altered since delivery."
+        },
+        {
+          "question": "What does a \"revoked\" or \"expired\" verification status mean?",
+          "answer": "\"Revoked\" means Bayt Languages has withdrawn the certification for a specific reason; \"expired\" means its defined validity period has passed. Either way, the verification code still resolves and shows the status clearly, without disclosing further sensitive detail."
         },
         {
           "question": "Is my document kept confidential?",
@@ -123,6 +143,10 @@
         {
           "question": "How do I download my translated file securely?",
           "answer": "From your verification page, click the download button. If your document has PIN protection enabled, you'll be asked to enter the PIN before a secure, time-limited download link is generated."
+        },
+        {
+          "question": "Which languages and document types do you work with?",
+          "answer": "We translate between Arabic, English, Chinese, and a range of other languages, across a wide variety of documents — legal, medical, academic, business, government, and personal. Message us with your document's details and we'll confirm right away."
         }
       ]
     },

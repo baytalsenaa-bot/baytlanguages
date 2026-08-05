@@ -2,6 +2,7 @@
   "common": {
     "brand": "Bayt Languages",
     "whatsapp": "Chat on WhatsApp",
+    "whatsappMessage": "Hello Bayt Languages, I'd like to ask about a translation.",
     "language": "Language"
   },
   "nav": {

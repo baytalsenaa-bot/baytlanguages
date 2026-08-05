@@ -167,11 +167,21 @@ export default async function VerificationPage({
         </section>
 
         {record.status === "verified" && (
-          <section className="rounded-xl border border-neutral-800 bg-neutral-900 p-6 text-center">
+          <section className="rounded-xl border border-neutral-800 bg-neutral-900 p-6 text-center space-y-4">
             <DownloadButton
               code={record.reference_code}
               pinRequired={record.pin_enabled}
             />
+            <div>
+              <a
+                href={`/api/verify/${record.reference_code}/certificate`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-neutral-400 underline hover:text-neutral-200"
+              >
+                Download verification certificate (PDF)
+              </a>
+            </div>
           </section>
         )}
 

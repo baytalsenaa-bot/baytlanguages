@@ -16,11 +16,15 @@ export default async function ProtectedAdminLayout({
     redirect("/admin/login");
   }
 
-  const { data: staff } = await supabase
+  const { data: staff, error: staffError } = await supabase
     .from("staff_profiles")
     .select("full_name, role, is_active")
     .eq("id", user.id)
     .single();
+
+  if (staffError) {
+    console.error("Failed to load staff profile:", staffError);
+  }
 
   if (!staff || !staff.is_active) {
     redirect("/admin/login");

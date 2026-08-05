@@ -4,13 +4,14 @@ import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Link } from "@/i18n/navigation";
 import { WhatsAppButton } from "./WhatsAppButton";
-import { fadeRiseIn, staggerContainer } from "@/lib/motion/tokens";
+import { FloatingGlyphs } from "./FloatingGlyphs";
+import { flyIn, staggerContainer } from "@/lib/motion/tokens";
 import { useReducedMotionSafe } from "@/lib/motion/useReducedMotionSafe";
 
 export function Hero() {
   const t = useTranslations("home.hero");
-  const item = useReducedMotionSafe(fadeRiseIn);
-  const container = useReducedMotionSafe(staggerContainer(0.12));
+  const item = useReducedMotionSafe(flyIn("up"));
+  const container = useReducedMotionSafe(staggerContainer(0.14));
 
   return (
     <section className="relative overflow-hidden px-4 pt-20 pb-24 md:pt-32 md:pb-32">
@@ -18,6 +19,7 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[600px] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(201,162,39,0.16),transparent)]"
       />
+      <FloatingGlyphs />
 
       <motion.div
         initial="hidden"

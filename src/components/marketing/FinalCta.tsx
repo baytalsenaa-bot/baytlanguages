@@ -3,13 +3,13 @@
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { WhatsAppButton } from "./WhatsAppButton";
-import { fadeRiseIn, staggerContainer } from "@/lib/motion/tokens";
+import { flyIn, staggerContainer } from "@/lib/motion/tokens";
 import { useReducedMotionSafe } from "@/lib/motion/useReducedMotionSafe";
 
 export function FinalCta() {
   const t = useTranslations("home.finalCta");
-  const item = useReducedMotionSafe(fadeRiseIn);
-  const container = useReducedMotionSafe(staggerContainer(0.1));
+  const item = useReducedMotionSafe(flyIn("up"));
+  const container = useReducedMotionSafe(staggerContainer(0.12));
 
   return (
     <section className="relative overflow-hidden px-4 py-24">

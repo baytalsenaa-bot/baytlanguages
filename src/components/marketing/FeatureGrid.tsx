@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { fadeRiseIn, staggerContainer } from "@/lib/motion/tokens";
+import { flyIn, staggerContainer, microHover } from "@/lib/motion/tokens";
 import { useReducedMotionSafe } from "@/lib/motion/useReducedMotionSafe";
 
 export function FeatureGrid({
@@ -9,14 +9,17 @@ export function FeatureGrid({
   title,
   items,
   columns = 2,
+  icons,
 }: {
   eyebrow?: string;
   title: string;
   items: { title: string; description: string }[];
   columns?: 2 | 3;
+  icons?: React.ReactNode[];
 }) {
-  const item = useReducedMotionSafe(fadeRiseIn);
-  const container = useReducedMotionSafe(staggerContainer(0.08));
+  const header = useReducedMotionSafe(flyIn("up"));
+  const item = useReducedMotionSafe(flyIn("up"));
+  const container = useReducedMotionSafe(staggerContainer(0.1));
 
   return (
     <section className="px-4 py-20">
@@ -30,14 +33,14 @@ export function FeatureGrid({
         >
           {eyebrow && (
             <motion.p
-              variants={item}
+              variants={header}
               className="text-sm font-medium uppercase tracking-widest text-brand-gold"
             >
               {eyebrow}
             </motion.p>
           )}
           <motion.h2
-            variants={item}
+            variants={header}
             className="mt-4 text-3xl font-semibold tracking-tight text-brand-parchment md:text-4xl"
           >
             {title}
@@ -51,12 +54,19 @@ export function FeatureGrid({
           variants={container}
           className={`mt-14 grid gap-6 ${columns === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}
         >
-          {items.map((entry) => (
+          {items.map((entry, index) => (
             <motion.div
               key={entry.title}
               variants={item}
+              whileHover={{ y: -4 }}
+              transition={microHover}
               className="rounded-xl border border-brand-border bg-brand-surface p-6"
             >
+              {icons?.[index] && (
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-brand-gold/40 text-brand-gold">
+                  {icons[index]}
+                </div>
+              )}
               <h3 className="text-lg font-semibold text-brand-parchment">{entry.title}</h3>
               <p className="mt-2 text-sm text-brand-muted">{entry.description}</p>
             </motion.div>

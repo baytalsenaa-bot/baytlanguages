@@ -2,8 +2,11 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SimpleHero } from "@/components/marketing/SimpleHero";
 import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { FinalCta } from "@/components/marketing/FinalCta";
+import { ShieldCheckIcon, QrCodeIcon, LockIcon } from "@/components/marketing/icons";
 
 type FeatureItem = { title: string; description: string };
+
+const valueIcons = [<ShieldCheckIcon key="a" />, <QrCodeIcon key="b" />, <LockIcon key="c" />];
 
 export default async function AboutPage({
   params,
@@ -23,7 +26,7 @@ export default async function AboutPage({
         title={t("hero.title")}
         subtitle={t("hero.subtitle")}
       />
-      <FeatureGrid title={t("values.title")} items={values} columns={3} />
+      <FeatureGrid title={t("values.title")} items={values} icons={valueIcons} columns={3} />
       <FinalCta />
     </>
   );

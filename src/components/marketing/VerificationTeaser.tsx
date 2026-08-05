@@ -1,16 +1,17 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { fadeRiseIn, scaleReveal, staggerContainer } from "@/lib/motion/tokens";
+import { flyIn, scaleReveal, staggerContainer } from "@/lib/motion/tokens";
 import { useReducedMotionSafe } from "@/lib/motion/useReducedMotionSafe";
 
 export function VerificationTeaser() {
   const t = useTranslations("home.verification");
-  const item = useReducedMotionSafe(fadeRiseIn);
+  const prefersReduced = useReducedMotion();
+  const item = useReducedMotionSafe(flyIn("up"));
   const seal = useReducedMotionSafe(scaleReveal);
-  const container = useReducedMotionSafe(staggerContainer(0.1));
+  const container = useReducedMotionSafe(staggerContainer(0.12));
 
   return (
     <section className="px-4 py-20">
@@ -21,7 +22,15 @@ export function VerificationTeaser() {
         variants={container}
         className="mx-auto flex max-w-5xl flex-col items-center gap-10 rounded-2xl border border-brand-border bg-brand-surface px-6 py-14 text-center md:flex-row md:text-start"
       >
-        <motion.div variants={seal} className="flex-shrink-0">
+        <motion.div variants={seal} className="relative flex-shrink-0">
+          {!prefersReduced && (
+            <motion.div
+              aria-hidden
+              className="absolute inset-[-10px] rounded-full border-2 border-dashed border-brand-gold/30"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+            />
+          )}
           <div className="flex h-28 w-28 items-center justify-center rounded-full border-2 border-brand-gold text-brand-gold">
             <ShieldCheckIcon />
           </div>

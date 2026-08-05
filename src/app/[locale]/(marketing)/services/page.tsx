@@ -2,8 +2,25 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SimpleHero } from "@/components/marketing/SimpleHero";
 import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { FinalCta } from "@/components/marketing/FinalCta";
+import {
+  ScaleIcon,
+  StethoscopeIcon,
+  GraduationCapIcon,
+  BriefcaseIcon,
+  IdCardIcon,
+  StampIcon,
+} from "@/components/marketing/icons";
 
 type FeatureItem = { title: string; description: string };
+
+const serviceIcons = [
+  <ScaleIcon key="a" />,
+  <StethoscopeIcon key="b" />,
+  <GraduationCapIcon key="c" />,
+  <BriefcaseIcon key="d" />,
+  <IdCardIcon key="e" />,
+  <StampIcon key="f" />,
+];
 
 export default async function ServicesPage({
   params,
@@ -24,7 +41,12 @@ export default async function ServicesPage({
         title={t("hero.title")}
         subtitle={t("hero.subtitle")}
       />
-      <FeatureGrid title={home("services.title")} items={items} columns={3} />
+      <FeatureGrid
+        title={home("services.title")}
+        items={items}
+        icons={serviceIcons}
+        columns={3}
+      />
       <FinalCta />
     </>
   );

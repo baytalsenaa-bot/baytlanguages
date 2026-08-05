@@ -49,6 +49,44 @@ export function slideIn(direction: "start" | "end", dir: "ltr" | "rtl"): Variant
   };
 }
 
+/**
+ * Bigger, springier version of fadeRiseIn/slideIn for hero-level moments that
+ * should read as "flying in" rather than a subtle fade — used sparingly, not
+ * for every element on a page.
+ */
+export function flyIn(direction: "up" | "down" | "start" | "end", dir: "ltr" | "rtl" = "ltr"): Variants {
+  const offset =
+    direction === "up"
+      ? { y: 56 }
+      : direction === "down"
+        ? { y: -56 }
+        : direction === "start"
+          ? { x: dir === "rtl" ? 56 : -56 }
+          : { x: dir === "rtl" ? -56 : 56 };
+
+  return {
+    hidden: { opacity: 0, ...offset, rotate: direction === "up" || direction === "down" ? 0 : -3 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      rotate: 0,
+      transition: { type: "spring", stiffness: 90, damping: 14, mass: 0.8 },
+    },
+  };
+}
+
+/** Continuous gentle bob + rotate for decorative elements — respects reduced motion by simply not being applied (callers should skip it via useReducedMotionSafe or a prefers-reduced-motion check). */
+export function floatLoop(delay = 0): Transition {
+  return {
+    duration: 4 + delay,
+    repeat: Infinity,
+    repeatType: "mirror",
+    ease: "easeInOut",
+    delay,
+  };
+}
+
 export const scaleReveal: Variants = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: {

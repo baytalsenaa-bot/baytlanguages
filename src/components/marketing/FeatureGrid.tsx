@@ -10,19 +10,27 @@ export function FeatureGrid({
   items,
   columns = 2,
   icons,
+  tone = "ink",
 }: {
   eyebrow?: string;
   title: string;
   items: { title: string; description: string }[];
   columns?: 2 | 3;
   icons?: React.ReactNode[];
+  tone?: "ink" | "surface";
 }) {
   const header = useReducedMotionSafe(flyIn("up"));
   const item = useReducedMotionSafe(flyIn("up"));
   const container = useReducedMotionSafe(staggerContainer(0.1));
 
+  const sectionTone = tone === "surface" ? "bg-brand-surface/40" : "";
+  const cardTone =
+    tone === "surface"
+      ? "border-brand-border bg-brand-ink/40"
+      : "border-brand-border bg-brand-surface";
+
   return (
-    <section className="px-4 py-20">
+    <section className={`px-4 py-20 ${sectionTone}`}>
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial="hidden"
@@ -34,14 +42,15 @@ export function FeatureGrid({
           {eyebrow && (
             <motion.p
               variants={header}
-              className="text-sm font-medium uppercase tracking-widest text-brand-gold"
+              className="flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold"
             >
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
               {eyebrow}
             </motion.p>
           )}
           <motion.h2
             variants={header}
-            className="mt-4 text-3xl font-semibold tracking-tight text-brand-parchment md:text-4xl"
+            className="mt-4 text-3xl font-extrabold tracking-tight text-brand-parchment md:text-4xl"
           >
             {title}
           </motion.h2>
@@ -60,14 +69,14 @@ export function FeatureGrid({
               variants={item}
               whileHover={{ y: -4 }}
               transition={microHover}
-              className="rounded-xl border border-brand-border bg-brand-surface p-6"
+              className={`rounded-xl border p-6 shadow-lg shadow-black/10 transition-shadow hover:shadow-brand-gold/10 ${cardTone}`}
             >
               {icons?.[index] && (
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full border border-brand-gold/40 text-brand-gold">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-brand-gold/15 text-brand-gold">
                   {icons[index]}
                 </div>
               )}
-              <h3 className="text-lg font-semibold text-brand-parchment">{entry.title}</h3>
+              <h3 className="text-lg font-bold text-brand-parchment">{entry.title}</h3>
               <p className="mt-2 text-sm text-brand-muted">{entry.description}</p>
             </motion.div>
           ))}

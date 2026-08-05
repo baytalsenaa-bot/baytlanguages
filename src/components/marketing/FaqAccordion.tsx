@@ -33,13 +33,14 @@ export function FaqAccordion({
         >
           <motion.p
             variants={header}
-            className="text-sm font-medium uppercase tracking-widest text-brand-gold"
+            className="flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold"
           >
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
             {eyebrow}
           </motion.p>
           <motion.h2
             variants={header}
-            className="mt-4 text-3xl font-semibold tracking-tight text-brand-parchment md:text-4xl"
+            className="mt-4 text-3xl font-extrabold tracking-tight text-brand-parchment md:text-4xl"
           >
             {title}
           </motion.h2>
@@ -50,7 +51,7 @@ export function FaqAccordion({
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={container}
-          className="mt-12 divide-y divide-brand-border rounded-xl border border-brand-border bg-brand-surface"
+          className="mt-12 divide-y divide-brand-border rounded-xl border border-brand-border bg-brand-surface shadow-lg shadow-black/10"
         >
           {items.map((entry, index) => {
             const isOpen = openIndex === index;
@@ -62,13 +63,13 @@ export function FaqAccordion({
                   className="flex w-full items-center justify-between gap-4 px-6 py-5 text-start"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-medium text-brand-parchment">
+                  <span className="font-semibold text-brand-parchment">
                     {entry.question}
                   </span>
                   <motion.span
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={microHover}
-                    className="flex-shrink-0 text-2xl leading-none text-brand-gold"
+                    className="flex-shrink-0 text-2xl leading-none text-brand-red"
                   >
                     +
                   </motion.span>

@@ -63,13 +63,14 @@ export function SectorsMarquee({
         >
           <motion.p
             variants={header}
-            className="text-sm font-medium uppercase tracking-widest text-brand-gold"
+            className="flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold"
           >
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
             {eyebrow}
           </motion.p>
           <motion.h2
             variants={header}
-            className="mt-4 text-3xl font-semibold tracking-tight text-brand-parchment md:text-4xl"
+            className="mt-4 text-3xl font-extrabold tracking-tight text-brand-parchment md:text-4xl"
           >
             {title}
           </motion.h2>

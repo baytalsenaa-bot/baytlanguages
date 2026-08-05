@@ -16,11 +16,15 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-brand-border/60">
+    <footer className="bg-brand-surface/40">
+      <div
+        aria-hidden
+        className="h-px w-full bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent"
+      />
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-lg font-semibold text-brand-parchment">{tc("brand")}</p>
+            <p className="text-lg font-extrabold text-brand-parchment">{tc("brand")}</p>
             <p className="mt-2 max-w-xs text-sm text-brand-muted">{tf("tagline")}</p>
             <p className="mt-3 max-w-xs text-xs text-brand-muted">{tContact("address")}</p>
           </div>

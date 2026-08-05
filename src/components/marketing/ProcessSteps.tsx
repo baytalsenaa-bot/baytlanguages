@@ -22,7 +22,7 @@ export function ProcessSteps({
   const stepUp = useReducedMotionSafe(flyIn("up"));
 
   return (
-    <section className="border-y border-brand-border/60 bg-brand-surface/40 px-4 py-20">
+    <section className="px-4 py-20">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial="hidden"
@@ -33,13 +33,14 @@ export function ProcessSteps({
         >
           <motion.p
             variants={header}
-            className="text-sm font-medium uppercase tracking-widest text-brand-gold"
+            className="flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold"
           >
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
             {eyebrow}
           </motion.p>
           <motion.h2
             variants={header}
-            className="mt-4 text-3xl font-semibold tracking-tight text-brand-parchment md:text-4xl"
+            className="mt-4 text-3xl font-extrabold tracking-tight text-brand-parchment md:text-4xl"
           >
             {title}
           </motion.h2>
@@ -56,12 +57,12 @@ export function ProcessSteps({
             <motion.li
               key={step.title}
               variants={index === 0 ? stepStart : stepUp}
-              className="relative rounded-xl border border-brand-border/60 bg-brand-ink/40 p-6"
+              className="relative rounded-xl border border-brand-border bg-brand-surface p-6 shadow-lg shadow-black/10"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-gold text-sm font-semibold text-brand-gold">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-brand-gold to-brand-gold-soft text-sm font-bold text-brand-ink">
                 {index + 1}
               </span>
-              <h3 className="mt-4 text-lg font-semibold text-brand-parchment">
+              <h3 className="mt-4 text-lg font-bold text-brand-parchment">
                 {step.title}
               </h3>
               <p className="mt-2 text-sm text-brand-muted">{step.description}</p>

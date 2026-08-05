@@ -14,13 +14,13 @@ export function VerificationTeaser() {
   const container = useReducedMotionSafe(staggerContainer(0.12));
 
   return (
-    <section className="px-4 py-20">
+    <section className="bg-brand-surface/40 px-4 py-20">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
         variants={container}
-        className="mx-auto flex max-w-5xl flex-col items-center gap-10 rounded-2xl border border-brand-border bg-brand-surface px-6 py-14 text-center md:flex-row md:text-start"
+        className="mx-auto flex max-w-5xl flex-col items-center gap-10 rounded-2xl border border-brand-border bg-brand-ink px-6 py-14 text-center shadow-xl shadow-black/20 md:flex-row md:text-start"
       >
         <motion.div variants={seal} className="relative flex-shrink-0">
           {!prefersReduced && (
@@ -39,13 +39,14 @@ export function VerificationTeaser() {
         <div>
           <motion.p
             variants={item}
-            className="text-sm font-medium uppercase tracking-widest text-brand-gold"
+            className="flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold md:justify-start"
           >
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
             {t("eyebrow")}
           </motion.p>
           <motion.h2
             variants={item}
-            className="mt-4 text-3xl font-semibold tracking-tight text-brand-parchment md:text-4xl"
+            className="mt-4 text-3xl font-extrabold tracking-tight text-brand-parchment md:text-4xl"
           >
             {t("title")}
           </motion.h2>

@@ -29,14 +29,15 @@ export function Hero() {
       >
         <motion.p
           variants={item}
-          className="text-sm font-medium uppercase tracking-widest text-brand-gold"
+          className="flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold"
         >
+          <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
           {t("eyebrow")}
         </motion.p>
 
         <motion.h1
           variants={item}
-          className="mt-6 text-4xl font-semibold tracking-tight text-brand-parchment md:text-6xl"
+          className="mt-6 text-4xl font-extrabold tracking-tight text-brand-parchment md:text-6xl"
         >
           {t("title")}
         </motion.h1>

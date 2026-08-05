@@ -54,6 +54,7 @@ export default async function HomePage({
         items={trustItems}
         icons={trustIcons}
         columns={2}
+        tone="surface"
       />
       <SectorsMarquee
         eyebrow={t("sectors.eyebrow")}
@@ -66,6 +67,7 @@ export default async function HomePage({
         items={serviceItems}
         icons={serviceIcons}
         columns={3}
+        tone="surface"
       />
       <ProcessSteps
         eyebrow={t("process.eyebrow")}

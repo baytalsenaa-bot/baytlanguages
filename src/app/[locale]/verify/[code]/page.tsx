@@ -111,8 +111,8 @@ export default async function VerificationPage({
           </header>
         </RevealSeal>
 
-        <section className="rounded-xl border border-brand-border bg-brand-surface p-6">
-          <h1 className="text-xl font-semibold text-brand-parchment">
+        <section className="rounded-xl border border-brand-border bg-brand-surface p-6 shadow-lg shadow-black/10">
+          <h1 className="text-xl font-bold text-brand-parchment">
             {record.title}
           </h1>
           {record.description && (
@@ -167,7 +167,7 @@ export default async function VerificationPage({
           </dl>
         </section>
 
-        <section className="rounded-xl border border-brand-border bg-brand-surface p-6">
+        <section className="rounded-xl border border-brand-border bg-brand-surface p-6 shadow-lg shadow-black/10">
           <h2 className="text-sm font-semibold text-brand-parchment">
             {t("fileIntegrity")}
           </h2>
@@ -186,7 +186,7 @@ export default async function VerificationPage({
         </section>
 
         {record.status === "verified" && (
-          <section className="space-y-4 rounded-xl border border-brand-border bg-brand-surface p-6 text-center">
+          <section className="space-y-4 rounded-xl border border-brand-border bg-brand-surface p-6 shadow-lg shadow-black/10 text-center">
             <DownloadButton
               code={record.reference_code}
               pinRequired={record.pin_enabled}
@@ -205,7 +205,7 @@ export default async function VerificationPage({
         )}
 
         {history.length > 0 && (
-          <section className="rounded-xl border border-brand-border bg-brand-surface p-6">
+          <section className="rounded-xl border border-brand-border bg-brand-surface p-6 shadow-lg shadow-black/10">
             <h2 className="text-sm font-semibold text-brand-parchment">
               {t("versionHistory")}
             </h2>
@@ -230,7 +230,7 @@ export default async function VerificationPage({
           </section>
         )}
 
-        <section className="rounded-xl border border-brand-border bg-brand-surface p-6">
+        <section className="rounded-xl border border-brand-border bg-brand-surface p-6 shadow-lg shadow-black/10">
           <h2 className="text-sm font-semibold text-brand-parchment">
             {t("legalNoticeTitle")}
           </h2>

@@ -26,7 +26,7 @@ export function FinalCta() {
       >
         <motion.h2
           variants={item}
-          className="text-3xl font-semibold tracking-tight text-brand-parchment md:text-4xl"
+          className="text-3xl font-extrabold tracking-tight text-brand-parchment md:text-4xl"
         >
           {t("title")}
         </motion.h2>

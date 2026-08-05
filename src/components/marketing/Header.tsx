@@ -21,7 +21,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-brand-border/60 bg-brand-ink/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-tight text-brand-parchment">
+        <Link href="/" className="text-lg font-extrabold tracking-tight text-brand-parchment">
           {tc("brand")}
         </Link>
 
@@ -30,7 +30,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-brand-muted transition-colors hover:text-brand-parchment"
+              className="text-sm font-medium text-brand-muted decoration-brand-gold underline-offset-8 transition-colors hover:text-brand-parchment hover:underline"
             >
               {link.label}
             </Link>
@@ -61,7 +61,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-sm text-brand-muted transition-colors hover:text-brand-parchment"
+                className="text-sm font-medium text-brand-muted decoration-brand-gold underline-offset-8 transition-colors hover:text-brand-parchment hover:underline"
               >
                 {link.label}
               </Link>

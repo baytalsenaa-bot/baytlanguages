@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { fadeRiseIn, staggerContainer } from "@/lib/motion/tokens";
+import { flyIn, staggerContainer } from "@/lib/motion/tokens";
 import { useReducedMotionSafe } from "@/lib/motion/useReducedMotionSafe";
 
 export function SimpleHero({
@@ -13,7 +13,7 @@ export function SimpleHero({
   title: string;
   subtitle: string;
 }) {
-  const item = useReducedMotionSafe(fadeRiseIn);
+  const item = useReducedMotionSafe(flyIn("up"));
   const container = useReducedMotionSafe(staggerContainer(0.1));
 
   return (
@@ -26,13 +26,14 @@ export function SimpleHero({
       >
         <motion.p
           variants={item}
-          className="text-sm font-medium uppercase tracking-widest text-brand-gold"
+          className="flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-gold"
         >
+          <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
           {eyebrow}
         </motion.p>
         <motion.h1
           variants={item}
-          className="mt-4 text-4xl font-semibold tracking-tight text-brand-parchment md:text-5xl"
+          className="mt-4 text-4xl font-extrabold tracking-tight text-brand-parchment md:text-5xl"
         >
           {title}
         </motion.h1>

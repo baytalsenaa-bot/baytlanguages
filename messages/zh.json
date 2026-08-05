@@ -144,6 +144,13 @@
   },
   "verify": {
     "brand": "Bayt Languages — 数字翻译验证",
+    "lookup": {
+      "eyebrow": "验证文件",
+      "title": "请输入验证码",
+      "subtitle": "验证码印制在随译文交付的证书上，您也可以直接扫描证书上的二维码。",
+      "placeholder": "例如：BL-7K9X2Q4M",
+      "submit": "验证"
+    },
     "status": {
       "verified": "已验证",
       "revoked": "已撤销",

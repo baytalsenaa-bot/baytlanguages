@@ -144,6 +144,13 @@
   },
   "verify": {
     "brand": "Bayt Languages — Digital Translation Verification",
+    "lookup": {
+      "eyebrow": "Verify a document",
+      "title": "Enter your verification code",
+      "subtitle": "You'll find this code on the certificate delivered with your translated document, or scan its QR code directly.",
+      "placeholder": "e.g. BL-7K9X2Q4M",
+      "submit": "Verify"
+    },
     "status": {
       "verified": "Verified",
       "revoked": "Revoked",

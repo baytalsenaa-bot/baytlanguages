@@ -10,7 +10,7 @@ export function FeatureGrid({
   items,
   columns = 2,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   items: { title: string; description: string }[];
   columns?: 2 | 3;
@@ -28,12 +28,14 @@ export function FeatureGrid({
           variants={container}
           className="mx-auto max-w-2xl text-center"
         >
-          <motion.p
-            variants={item}
-            className="text-sm font-medium uppercase tracking-widest text-brand-gold"
-          >
-            {eyebrow}
-          </motion.p>
+          {eyebrow && (
+            <motion.p
+              variants={item}
+              className="text-sm font-medium uppercase tracking-widest text-brand-gold"
+            >
+              {eyebrow}
+            </motion.p>
+          )}
           <motion.h2
             variants={item}
             className="mt-4 text-3xl font-semibold tracking-tight text-brand-parchment md:text-4xl"

@@ -3,6 +3,7 @@ import { Hero } from "@/components/marketing/Hero";
 import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { ProcessSteps } from "@/components/marketing/ProcessSteps";
 import { VerificationTeaser } from "@/components/marketing/VerificationTeaser";
+import { FaqAccordion } from "@/components/marketing/FaqAccordion";
 import { FinalCta } from "@/components/marketing/FinalCta";
 import {
   StampIcon,
@@ -41,6 +42,7 @@ export default async function HomePage({
   const trustItems = t.raw("trust.items") as FeatureItem[];
   const serviceItems = t.raw("services.items") as FeatureItem[];
   const processSteps = t.raw("process.steps") as FeatureItem[];
+  const faqItems = t.raw("faq.items") as { question: string; answer: string }[];
 
   return (
     <>
@@ -65,6 +67,7 @@ export default async function HomePage({
         steps={processSteps}
       />
       <VerificationTeaser />
+      <FaqAccordion eyebrow={t("faq.eyebrow")} title={t("faq.title")} items={faqItems} />
       <FinalCta />
     </>
   );

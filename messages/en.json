@@ -96,6 +96,36 @@
       "description": "Scan the QR code on any Bayt Languages certificate to confirm document details, translation dates, and file integrity — instantly, from any device.",
       "cta": "Verify a document"
     },
+    "faq": {
+      "eyebrow": "Frequently asked",
+      "title": "Questions we hear most often",
+      "items": [
+        {
+          "question": "What's the difference between standard, certified, notarized, and sworn translation?",
+          "answer": "Standard translation is accurate but carries no legal weight. Certified translation includes a signed statement of accuracy from the translator, accepted by most institutions. Notarized translation adds a notary's confirmation of the translator's identity. Sworn translation is completed by a translator formally authorized by a court or government body — required by certain embassies and legal proceedings. We'll confirm which classification your document needs when you message us."
+        },
+        {
+          "question": "Do I need to create an account or fill out a form to get started?",
+          "answer": "No. There's no registration and no public quotation form. You simply message us on WhatsApp, send your document, and agree on scope, languages, and timeline directly with our team."
+        },
+        {
+          "question": "How long does a translation typically take?",
+          "answer": "It depends on the document's length, language pair, and classification. Our team will give you a clear timeline on WhatsApp once we've reviewed your document — before any work begins."
+        },
+        {
+          "question": "How do I know a translated document is genuinely from Bayt Languages?",
+          "answer": "Every completed translation ships with a QR code linking to a public verification page confirming document details, translation dates, and a SHA-256 fingerprint proving the file hasn't been altered since delivery."
+        },
+        {
+          "question": "Is my document kept confidential?",
+          "answer": "Yes. Your documents and identity are handled under strict confidentiality. On the verification certificate, you also choose whether your name appears in full, partially masked, or hidden entirely."
+        },
+        {
+          "question": "How do I download my translated file securely?",
+          "answer": "From your verification page, click the download button. If your document has PIN protection enabled, you'll be asked to enter the PIN before a secure, time-limited download link is generated."
+        }
+      ]
+    },
     "finalCta": {
       "title": "Ready to get started?",
       "subtitle": "Send us your document on WhatsApp and we'll take it from there.",

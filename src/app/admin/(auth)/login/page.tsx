@@ -25,7 +25,7 @@ export default function LoginPage() {
     setIsSubmitting(false);
 
     if (signInError) {
-      setError("Invalid email or password.");
+      setError(signInError.message);
       return;
     }
 

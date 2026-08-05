@@ -3,12 +3,12 @@ import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import { Geist, Geist_Mono, Noto_Kufi_Arabic, Noto_Sans_SC } from "next/font/google";
+import { Montserrat, Geist_Mono, Cairo, Noto_Sans_SC } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const notoKufiArabic = Noto_Kufi_Arabic({
-  variable: "--font-noto-kufi-arabic",
+const cairo = Cairo({
+  variable: "--font-cairo",
   subsets: ["arabic"],
 });
 
@@ -59,7 +59,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={dir}
-      className={`${geistSans.variable} ${geistMono.variable} ${notoKufiArabic.variable} ${notoSansSC.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${geistMono.variable} ${cairo.variable} ${notoSansSC.variable} h-full antialiased`}
     >
       <body className="marketing-root min-h-full bg-brand-ink text-brand-parchment">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>

@@ -15,7 +15,7 @@ export function FinalCta() {
     <section className="relative overflow-hidden px-4 py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[400px] bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(201,162,39,0.14),transparent)]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[400px] bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(212,175,55,0.16),transparent)]"
       />
       <motion.div
         initial="hidden"

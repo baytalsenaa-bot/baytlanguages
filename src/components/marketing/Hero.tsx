@@ -17,7 +17,7 @@ export function Hero() {
     <section className="relative overflow-hidden px-4 pt-20 pb-24 md:pt-32 md:pb-32">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[600px] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(201,162,39,0.16),transparent)]"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[600px] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(212,175,55,0.18),transparent)]"
       />
       <FloatingGlyphs />
 

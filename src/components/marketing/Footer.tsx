@@ -25,13 +25,15 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
-            <Image
-              src="/logo/bayt-languages-header.png"
-              alt={tc("brand")}
-              width={162}
-              height={45}
-              className="h-9 w-auto"
-            />
+            <div className="inline-flex items-center rounded-lg bg-white px-3 py-1.5 shadow-sm">
+              <Image
+                src="/logo/bayt-languages-color.png"
+                alt={tc("brand")}
+                width={1534}
+                height={512}
+                className="h-10 w-auto"
+              />
+            </div>
             <p className="mt-3 max-w-xs text-sm text-brand-muted">{tf("tagline")}</p>
             <p className="mt-3 max-w-xs text-xs text-brand-muted">{tContact("address")}</p>
           </div>

@@ -22,13 +22,17 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-brand-border/60 bg-brand-ink/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link href="/" className="flex items-center" aria-label={tc("brand")}>
+        <Link
+          href="/"
+          className="flex items-center rounded-lg bg-white px-3 py-1.5 shadow-sm"
+          aria-label={tc("brand")}
+        >
           <Image
-            src="/logo/bayt-languages-header.png"
+            src="/logo/bayt-languages-color.png"
             alt={tc("brand")}
-            width={162}
-            height={45}
-            className="h-9 w-auto"
+            width={1534}
+            height={512}
+            className="h-10 w-auto"
             priority
           />
         </Link>

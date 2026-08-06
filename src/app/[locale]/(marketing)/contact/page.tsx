@@ -47,6 +47,12 @@ export default async function ContactPage({
             >
               {t("mapCta")}
             </a>
+            <a
+              href={`mailto:${t("email")}`}
+              className="mt-4 text-sm text-brand-parchment underline hover:text-brand-gold"
+            >
+              {t("email")}
+            </a>
           </div>
         </div>
       </section>

@@ -245,6 +245,11 @@ export default async function VerificationPage({
         </section>
 
         <p className="text-center text-xs text-brand-muted">{t("issuedBy")}</p>
+        <p className="text-center text-xs text-brand-muted">
+          <a href="mailto:info@baytlanguages.com" className="underline hover:text-brand-parchment">
+            info@baytlanguages.com
+          </a>
+        </p>
       </div>
     </main>
   );

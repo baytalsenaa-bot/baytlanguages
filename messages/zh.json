@@ -197,7 +197,9 @@
     "note": "无需填写表单，无需注册账户 —— 直接与我们的团队沟通。",
     "addressLabel": "我们的办公室",
     "address": "埃及，新开罗，第五社区，南九十街",
-    "mapCta": "在 Google 地图上查看"
+    "mapCta": "在 Google 地图上查看",
+    "emailLabel": "给我们发邮件",
+    "email": "info@baytlanguages.com"
   },
   "verify": {
     "brand": "Bayt Languages — 数字翻译验证",

@@ -36,6 +36,12 @@ export function Footer() {
             </div>
             <p className="mt-3 max-w-xs text-sm text-brand-muted">{tf("tagline")}</p>
             <p className="mt-3 max-w-xs text-xs text-brand-muted">{tContact("address")}</p>
+            <a
+              href={`mailto:${tContact("email")}`}
+              className="mt-1 block text-xs text-brand-muted underline hover:text-brand-parchment"
+            >
+              {tContact("email")}
+            </a>
           </div>
 
           <nav className="flex flex-wrap gap-6">

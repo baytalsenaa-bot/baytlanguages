@@ -131,6 +131,7 @@ export function CertificateDocument(data: CertificateData) {
           Issued by Bayt Languages. This certificate confirms that the document
           described above was translated and issued by Bayt Languages. Any
           alteration of the translated document invalidates this verification.
+          {"\n"}info@baytlanguages.com
         </Text>
       </Page>
     </Document>

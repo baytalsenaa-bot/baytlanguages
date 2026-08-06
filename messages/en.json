@@ -197,6 +197,8 @@
     "note": "No forms, no accounts — just a conversation with our team.",
     "addressLabel": "Our office",
     "address": "90th Street South, The Fifth Settlement, New Cairo, Egypt",
+    "emailLabel": "Email us",
+    "email": "info@baytlanguages.com",
     "mapCta": "View on Google Maps"
   },
   "verify": {

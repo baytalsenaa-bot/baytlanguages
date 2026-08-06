@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { WhatsAppIcon } from "./WhatsAppButton";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export function Footer() {
   const t = useTranslations("nav");
@@ -26,9 +28,13 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { href: "#", label: "Facebook", icon: FacebookIcon },
-    { href: "#", label: "Instagram", icon: InstagramIcon },
-    { href: "#", label: "LinkedIn", icon: LinkedInIcon },
+    { href: "https://www.facebook.com/baytlanguages", label: "Facebook", icon: FacebookIcon },
+    {
+      href: "https://www.linkedin.com/company/baytlanguages",
+      label: "LinkedIn",
+      icon: LinkedInIcon,
+    },
+    { href: getWhatsAppUrl(tc("whatsappMessage")), label: "WhatsApp", icon: WhatsAppIcon },
   ];
 
   return (
@@ -133,16 +139,6 @@ function FacebookIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
       <path d="M13.5 21v-7.2h2.4l.4-2.8h-2.8V9.2c0-.8.3-1.4 1.5-1.4h1.4V5.3c-.3 0-1.2-.1-2.2-.1-2.3 0-3.8 1.3-3.8 3.8V11H8v2.8h2.4V21h3.1Z" />
-    </svg>
-  );
-}
-
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={1.6}>
-      <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none" />
     </svg>
   );
 }

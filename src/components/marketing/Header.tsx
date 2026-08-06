@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -21,8 +22,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-brand-border/60 bg-brand-ink/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-lg font-extrabold tracking-tight text-brand-parchment">
-          {tc("brand")}
+        <Link href="/" className="flex items-center" aria-label={tc("brand")}>
+          <Image
+            src="/logo/bayt-languages-header.png"
+            alt={tc("brand")}
+            width={162}
+            height={45}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

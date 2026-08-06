@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -24,8 +25,14 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-lg font-extrabold text-brand-parchment">{tc("brand")}</p>
-            <p className="mt-2 max-w-xs text-sm text-brand-muted">{tf("tagline")}</p>
+            <Image
+              src="/logo/bayt-languages-header.png"
+              alt={tc("brand")}
+              width={162}
+              height={45}
+              className="h-9 w-auto"
+            />
+            <p className="mt-3 max-w-xs text-sm text-brand-muted">{tf("tagline")}</p>
             <p className="mt-3 max-w-xs text-xs text-brand-muted">{tContact("address")}</p>
           </div>
 

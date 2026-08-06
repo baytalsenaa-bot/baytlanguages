@@ -1,4 +1,17 @@
-import { Document, Page, View, Text, Image, StyleSheet } from "@react-pdf/renderer";
+import path from "node:path";
+import { Document, Page, View, Text, Image, StyleSheet, Font } from "@react-pdf/renderer";
+
+// Helvetica (the react-pdf default) only has Latin glyphs — Arabic text in a
+// document title/description/client name would otherwise render as garbage
+// characters. Almarai covers Arabic + Latin, so it's registered as the one
+// font for the whole certificate rather than switching per field.
+Font.register({
+  family: "Almarai",
+  fonts: [
+    { src: path.join(process.cwd(), "public/fonts/Almarai-Regular.ttf"), fontWeight: "normal" },
+    { src: path.join(process.cwd(), "public/fonts/Almarai-Bold.ttf"), fontWeight: "bold" },
+  ],
+});
 
 export type CertificateData = {
   referenceCode: string;
@@ -25,7 +38,7 @@ export type CertificateData = {
 };
 
 const styles = StyleSheet.create({
-  page: { padding: 48, fontSize: 11, fontFamily: "Helvetica", color: "#1a1a1a" },
+  page: { padding: 48, fontSize: 11, fontFamily: "Almarai", color: "#1a1a1a" },
   header: { textAlign: "center", marginBottom: 24 },
   brand: { fontSize: 10, color: "#666666" },
   title: { fontSize: 18, fontWeight: 700, marginTop: 8 },

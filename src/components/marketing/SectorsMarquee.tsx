@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useLocale } from "next-intl";
 import { flyIn, staggerContainer } from "@/lib/motion/tokens";
 import { useReducedMotionSafe } from "@/lib/motion/useReducedMotionSafe";
 import {
@@ -48,6 +49,7 @@ export function SectorsMarquee({
   items: string[];
 }) {
   const prefersReduced = useReducedMotion();
+  const isRtl = useLocale() === "ar";
   const header = useReducedMotionSafe(flyIn("up"));
   const container = useReducedMotionSafe(staggerContainer(0.1));
 
@@ -90,7 +92,7 @@ export function SectorsMarquee({
         ) : (
           <motion.div
             className="flex gap-4"
-            animate={{ x: ["0%", "-50%"] }}
+            animate={{ x: isRtl ? ["-50%", "0%"] : ["0%", "-50%"] }}
             transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
           >
             <div className="flex gap-4">

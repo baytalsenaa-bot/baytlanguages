@@ -21,7 +21,7 @@ export function CertificateMockup() {
   }, [prefersReduced]);
 
   return (
-    <div className="relative mx-auto w-full max-w-sm rotate-1 overflow-hidden rounded-2xl border border-brand-gold/30 bg-brand-surface p-6 shadow-2xl shadow-black/30">
+    <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl border border-brand-gold/30 bg-brand-surface p-6 shadow-2xl shadow-black/30">
       <ScanLine active={!prefersReduced && !verified} />
 
       <div className="flex items-center justify-between gap-3">

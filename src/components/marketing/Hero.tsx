@@ -6,13 +6,13 @@ import { Link } from "@/i18n/navigation";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { FloatingGlyphs } from "./FloatingGlyphs";
 import { CertificateMockup } from "./CertificateMockup";
-import { flyIn, staggerContainer } from "@/lib/motion/tokens";
+import { flyIn, scaleReveal, staggerContainer } from "@/lib/motion/tokens";
 import { useReducedMotionSafe } from "@/lib/motion/useReducedMotionSafe";
 
 export function Hero() {
   const t = useTranslations("home.hero");
   const item = useReducedMotionSafe(flyIn("up"));
-  const mockupItem = useReducedMotionSafe(flyIn("end"));
+  const mockupItem = useReducedMotionSafe(scaleReveal);
   const container = useReducedMotionSafe(staggerContainer(0.14));
 
   return (
@@ -75,7 +75,7 @@ export function Hero() {
         initial="hidden"
         animate="visible"
         variants={item}
-        className="mx-auto mt-16 max-w-xl text-center text-sm italic text-brand-muted"
+        className="mx-auto mt-16 max-w-2xl text-center text-lg italic text-brand-parchment md:text-xl"
       >
         {t("transitionTagline")}
       </motion.p>

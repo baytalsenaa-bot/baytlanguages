@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { buildLanguageAlternates } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/seo";
 import { SimpleHero } from "@/components/marketing/SimpleHero";
 import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { FinalCta } from "@/components/marketing/FinalCta";
@@ -10,8 +10,18 @@ type FeatureItem = { title: string; description: string };
 
 const valueIcons = [<ShieldCheckIcon key="a" />, <QrCodeIcon key="b" />, <LockIcon key="c" />];
 
-export function generateMetadata(): Metadata {
-  return { alternates: { languages: buildLanguageAlternates("/about") } };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "seo.about" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    ...buildPageMetadata(locale, "/about"),
+  };
 }
 
 export default async function AboutPage({

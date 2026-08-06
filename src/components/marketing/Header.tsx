@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { WhatsAppButton } from "./WhatsAppButton";
+import { ShieldCheckIcon } from "./icons";
 
 export function Header() {
   const t = useTranslations("nav");
@@ -16,6 +17,7 @@ export function Header() {
     { href: "/", label: t("home") },
     { href: "/about", label: t("about") },
     { href: "/services", label: t("services") },
+    { href: "/blog", label: t("blog") },
     { href: "/contact", label: t("contact") },
   ];
 
@@ -50,6 +52,13 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
+          <Link
+            href="/verify"
+            className="flex items-center gap-1.5 text-sm font-medium text-brand-gold transition-colors hover:text-brand-gold-soft"
+          >
+            <ShieldCheckIcon className="h-4 w-4" />
+            {t("verify")}
+          </Link>
           <LanguageSwitcher />
           <WhatsAppButton variant="outline" />
         </div>
@@ -79,6 +88,14 @@ export function Header() {
               </Link>
             ))}
           </nav>
+          <Link
+            href="/verify"
+            onClick={() => setIsOpen(false)}
+            className="mt-4 flex items-center gap-1.5 text-sm font-medium text-brand-gold"
+          >
+            <ShieldCheckIcon className="h-4 w-4" />
+            {t("verify")}
+          </Link>
           <div className="mt-4 flex items-center justify-between gap-4">
             <LanguageSwitcher />
           </div>

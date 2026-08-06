@@ -8,4 +8,13 @@ export function buildLanguageAlternates(path: string) {
   );
 }
 
+export function buildPageMetadata(locale: string, path: string) {
+  return {
+    alternates: {
+      canonical: `${siteUrl}/${locale}${path}`,
+      languages: buildLanguageAlternates(path),
+    },
+  };
+}
+
 export { siteUrl };

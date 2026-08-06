@@ -93,12 +93,16 @@ export function SectorsMarquee({
             animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
           >
-            {items.map((label, index) => (
-              <SectorBadge key={`a-${label}`} label={label} index={index} keyPrefix="a" />
-            ))}
-            {items.map((label, index) => (
-              <SectorBadge key={`b-${label}`} label={label} index={index} keyPrefix="b" />
-            ))}
+            <div className="flex gap-4">
+              {items.map((label, index) => (
+                <SectorBadge key={`a-${label}`} label={label} index={index} keyPrefix="a" />
+              ))}
+            </div>
+            <div aria-hidden="true" className="flex gap-4">
+              {items.map((label, index) => (
+                <SectorBadge key={`b-${label}`} label={label} index={index} keyPrefix="b" />
+              ))}
+            </div>
           </motion.div>
         )}
       </div>

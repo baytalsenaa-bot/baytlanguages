@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useId, useState } from "react";
+import { motion } from "motion/react";
 import { flyIn, staggerContainer, microHover } from "@/lib/motion/tokens";
 import { useReducedMotionSafe } from "@/lib/motion/useReducedMotionSafe";
 
@@ -17,6 +17,7 @@ export function FaqAccordion({
   items: FaqItem[];
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const idPrefix = useId();
   const header = useReducedMotionSafe(flyIn("up"));
   const item = useReducedMotionSafe(flyIn("up"));
   const container = useReducedMotionSafe(staggerContainer(0.06));
@@ -55,13 +56,17 @@ export function FaqAccordion({
         >
           {items.map((entry, index) => {
             const isOpen = openIndex === index;
+            const panelId = `${idPrefix}-panel-${index}`;
+            const buttonId = `${idPrefix}-button-${index}`;
             return (
               <motion.div key={entry.question} variants={item}>
                 <button
+                  id={buttonId}
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="flex w-full items-center justify-between gap-4 px-6 py-5 text-start"
                   aria-expanded={isOpen}
+                  aria-controls={panelId}
                 >
                   <span className="font-semibold text-brand-parchment">
                     {entry.question}
@@ -74,21 +79,19 @@ export function FaqAccordion({
                     +
                   </motion.span>
                 </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <p className="px-6 pb-5 text-sm leading-relaxed text-brand-muted">
-                        {entry.answer}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <motion.div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  initial={false}
+                  animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="overflow-hidden"
+                >
+                  <p className="px-6 pb-5 text-sm leading-relaxed text-brand-muted">
+                    {entry.answer}
+                  </p>
+                </motion.div>
               </motion.div>
             );
           })}

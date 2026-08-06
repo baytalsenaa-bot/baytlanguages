@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
 import { DownloadButton } from "./DownloadButton";
-import { RevealSeal } from "./RevealSeal";
+import { VerificationReveal } from "./VerificationReveal";
+import { ShieldCheckIcon, BanIcon, ClockIcon, SearchXIcon } from "@/components/marketing/icons";
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
@@ -48,6 +48,12 @@ const statusStyles: Record<string, string> = {
   expired: "border-amber-800 bg-amber-950 text-amber-300",
 };
 
+const statusIcons = {
+  verified: ShieldCheckIcon,
+  revoked: BanIcon,
+  expired: ClockIcon,
+};
+
 export default async function VerificationPage({
   params,
 }: {
@@ -75,10 +81,23 @@ export default async function VerificationPage({
     .maybeSingle();
 
   if (!recordData) {
-    notFound();
+    return (
+      <main className="min-h-screen px-4 py-16">
+        <div className="mx-auto max-w-md space-y-6 text-center">
+          <p className="text-sm text-brand-muted">{t("brand")}</p>
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-brand-border bg-brand-surface text-brand-muted">
+            <SearchXIcon className="h-7 w-7" />
+          </div>
+          <h1 className="text-xl font-bold text-brand-parchment">{t("notFoundTitle")}</h1>
+          <p className="text-sm text-brand-muted">{t("notFoundBody")}</p>
+          <p className="font-mono text-xs text-brand-muted">{normalizedCode}</p>
+        </div>
+      </main>
+    );
   }
 
   const record = recordData as VerificationView;
+  const StatusIcon = statusIcons[record.status];
 
   const { data: historyData } = await supabase
     .from("public_version_history_view")
@@ -91,31 +110,31 @@ export default async function VerificationPage({
   const enumLabel = (group: "clientType" | "category" | "classification", value: string) =>
     t.has(`enums.${group}.${value}`) ? t(`enums.${group}.${value}` as never) : value;
 
+  const header = (
+    <header className="rounded-2xl text-center">
+      <p className="text-sm text-brand-muted">{t("brand")}</p>
+      <div
+        className={`mt-4 inline-flex items-center gap-2 rounded-full border px-5 py-1.5 text-sm font-semibold ${statusStyles[record.status]}`}
+      >
+        <StatusIcon className="h-4 w-4" />
+        {t(`status.${record.status}` as never)}
+      </div>
+      <p className="mt-3 font-mono text-lg text-brand-parchment">{record.reference_code}</p>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`/api/verify/${record.reference_code}/qr`}
+        alt="QR code linking to this verification page"
+        width={160}
+        height={160}
+        className="mx-auto mt-4 rounded-lg border border-brand-border bg-white p-2"
+      />
+    </header>
+  );
+
   return (
     <main className="min-h-screen px-4 py-16">
-      <div className="mx-auto max-w-2xl space-y-8">
-        <RevealSeal>
-          <header className="text-center">
-            <p className="text-sm text-brand-muted">{t("brand")}</p>
-            <div
-              className={`mt-4 inline-flex items-center gap-2 rounded-full border px-5 py-1.5 text-sm font-semibold ${statusStyles[record.status]}`}
-            >
-              {t(`status.${record.status}` as never)}
-            </div>
-            <p className="mt-3 font-mono text-lg text-brand-parchment">
-              {record.reference_code}
-            </p>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`/api/verify/${record.reference_code}/qr`}
-              alt="QR code linking to this verification page"
-              width={160}
-              height={160}
-              className="mx-auto mt-4 rounded-lg border border-brand-border bg-white p-2"
-            />
-          </header>
-        </RevealSeal>
-
+      <div className="mx-auto max-w-2xl">
+        <VerificationReveal header={header}>
         <section className="rounded-xl border border-brand-border bg-brand-surface p-6 shadow-lg shadow-black/10">
           <h1 className="text-xl font-bold text-brand-parchment">
             {record.title}
@@ -244,12 +263,18 @@ export default async function VerificationPage({
           </p>
         </section>
 
-        <p className="text-center text-xs text-brand-muted">{t("issuedBy")}</p>
-        <p className="text-center text-xs text-brand-muted">
-          <a href="mailto:info@baytlanguages.com" className="underline hover:text-brand-parchment">
-            info@baytlanguages.com
-          </a>
-        </p>
+        <div className="space-y-1 text-center">
+          <p className="text-xs text-brand-muted">{t("issuedBy")}</p>
+          <p className="text-xs text-brand-muted">
+            <a
+              href="mailto:info@baytlanguages.com"
+              className="underline hover:text-brand-parchment"
+            >
+              info@baytlanguages.com
+            </a>
+          </p>
+        </div>
+        </VerificationReveal>
       </div>
     </main>
   );

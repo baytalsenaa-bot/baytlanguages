@@ -5,20 +5,50 @@
     "whatsappMessage": "Hello Bayt Languages, I'd like to ask about a translation.",
     "language": "Language"
   },
+  "seo": {
+    "home": {
+      "title": "Certified Translation Services in Egypt | Bayt Languages",
+      "description": "Certified, notarized, and specialist translation for legal, business, academic, and personal documents — reviewed by professional linguists and issued with a QR-verifiable certificate."
+    },
+    "about": {
+      "title": "About Bayt Languages | Professional Translation House",
+      "description": "A translation house built on craftsmanship: specialist linguists, independent review, and a verifiable certificate on every document we deliver."
+    },
+    "services": {
+      "title": "Legal & Business Translation Services | Bayt Languages",
+      "description": "Certified translation across legal, medical, academic, business, government, and personal documents, in Arabic, English, Chinese, and more."
+    },
+    "contact": {
+      "title": "Contact Bayt Languages | WhatsApp, Email & Office",
+      "description": "Reach Bayt Languages via WhatsApp, email, or visit our New Cairo office. No forms, no accounts — just a direct conversation with our team."
+    },
+    "verify": {
+      "title": "Verify a Translation Certificate | Bayt Languages",
+      "description": "Enter your reference code to verify a Bayt Languages translation certificate — confirm document details, translation dates, and file integrity."
+    },
+    "blog": {
+      "title": "Blog | Bayt Languages",
+      "description": "Practical guidance on certified, notarized, and sworn translation — written by the Bayt Languages team."
+    }
+  },
   "nav": {
     "home": "Home",
     "about": "About",
     "services": "Services",
+    "blog": "Blog",
     "contact": "Contact",
     "verify": "Verify a document"
   },
   "home": {
     "hero": {
       "eyebrow": "Certified translation, delivered with precision",
-      "title": "Language is a bridge. We build it with craftsmanship.",
-      "subtitle": "Bayt Languages delivers certified, notarized, and specialist translations for individuals, businesses, and government bodies — reviewed by professional linguists and backed by a verifiable digital certificate on every document.",
+      "title": "Certified translations you can verify in seconds.",
+      "subtitle": "From legal contracts to academic transcripts, medical records to immigration paperwork — every document we translate is reviewed by a specialist linguist and delivered with a QR-verifiable digital certificate. Message us on WhatsApp to get started.",
       "cta": "Start on WhatsApp",
-      "secondaryCta": "Explore our services"
+      "secondaryCta": "Verify a document",
+      "transitionTagline": "Language is a bridge. We build it with craftsmanship.",
+      "mockupEyebrow": "Digital Verification Certificate",
+      "mockupReferenceLabel": "Reference code"
     },
     "trust": {
       "eyebrow": "Why Bayt Languages",
@@ -195,11 +225,15 @@
     },
     "cta": "Message us on WhatsApp",
     "note": "No forms, no accounts — just a conversation with our team.",
+    "replyNote": "Usually replies within 15–30 minutes",
     "addressLabel": "Our office",
     "address": "90th Street South, The Fifth Settlement, New Cairo, Egypt",
+    "hoursLabel": "Working hours",
+    "hours": "Sunday–Thursday, 10:00 AM–6:00 PM (Cairo time)",
     "emailLabel": "Email us",
     "email": "info@baytlanguages.com",
-    "mapCta": "View on Google Maps"
+    "emailCta": "Send an email",
+    "mapCta": "Get directions"
   },
   "verify": {
     "brand": "Bayt Languages — Digital Translation Verification",
@@ -208,8 +242,14 @@
       "title": "Enter your verification code",
       "subtitle": "You'll find this code on the certificate delivered with your translated document, or scan its QR code directly.",
       "placeholder": "e.g. BL-7K9X2Q4M",
-      "submit": "Verify"
+      "submit": "Verify",
+      "sampleCta": "View sample verification",
+      "explainTitle": "What you'll see",
+      "explainBody": "A valid code resolves to document details (title, category, classification, languages, page counts, key dates), a SHA-256 file fingerprint, and — if applicable — a secure download link.",
+      "privacyNote": "The document's content itself is never shown. Only the metadata the client has chosen to make visible appears on this page."
     },
+    "sampleBanner": "Sample verification — for illustration only, not a real document",
+    "sampleFooter": "This is a sample page showing what a real verification certificate looks like.",
     "status": {
       "verified": "Verified",
       "revoked": "Revoked",
@@ -269,8 +309,163 @@
     "notFoundTitle": "Verification not found",
     "notFoundBody": "This reference code doesn't match any verification record. Please check the code and try again."
   },
+  "blog": {
+    "eyebrow": "Insights",
+    "title": "Notes on certified translation",
+    "subtitle": "Practical guidance on certified, notarized, and sworn translation — written by the Bayt Languages team.",
+    "readMore": "Read article",
+    "backToBlog": "Back to all articles",
+    "posts": {
+      "certified-vs-notarized": {
+        "title": "Certified vs. Notarized Translation: What's the Difference?",
+        "excerpt": "The two terms get used interchangeably, but they mean different things — and the distinction matters when an embassy or court asks for one specifically.",
+        "date": "2026-07-01",
+        "body": [
+          "Many people use \"certified\" and \"notarized\" translation interchangeably, but they aren't the same thing — and the distinction matters when you're submitting documents to an embassy, university, or court.",
+          "A certified translation includes a signed statement from the translator or translation provider attesting that the translation is accurate and complete. It's the most commonly requested type, and it's accepted by the vast majority of institutions — universities, employers, and many government offices.",
+          "A notarized translation goes one step further: a notary public witnesses the translator's signature, confirms their identity, and applies a notarial seal. Importantly, the notary does not verify the accuracy of the translation itself — only that the person who signed the certification statement is who they claim to be.",
+          "Some institutions, particularly certain courts, immigration authorities, and foreign embassies, specifically require notarization. Others will accept a standard certified translation without issue. The safest approach is always to ask the receiving institution directly which classification they require before requesting your translation.",
+          "At Bayt Languages, we ask this exact question at the start of every conversation on WhatsApp, so your document is prepared to the correct standard the first time — no costly redo later."
+        ]
+      },
+      "documents-that-need-certified-translation": {
+        "title": "5 Documents That Almost Always Require Certified Translation",
+        "excerpt": "From birth certificates to corporate registers — here's why these five document types are almost never accepted as a plain, uncertified translation.",
+        "date": "2026-07-08",
+        "body": [
+          "Certain documents carry legal or official weight, so the institutions that request them almost always require a certified translation rather than a plain one. Here are five you'll run into most often.",
+          "Birth certificates, when submitted for immigration, citizenship, or residency applications — the receiving authority needs a translation it can hold accountable, not an informal rendering.",
+          "Marriage certificates, typically needed for spousal visas, name-change procedures, or family reunification cases abroad.",
+          "Academic transcripts and diplomas, required by universities for admissions and by professional licensing bodies verifying your qualifications.",
+          "Powers of attorney and other legal instruments used across borders, where an error in translation could change the legal effect of the document.",
+          "Corporate documents — articles of incorporation, commercial registers — needed to open a foreign bank account or register a branch office.",
+          "If you're not sure whether your document needs certification, message us on WhatsApp with a description of the document and where it's going. We'll confirm the right classification before any work begins."
+        ]
+      },
+      "how-long-does-certified-translation-take": {
+        "title": "How Long Does a Certified Translation Take?",
+        "excerpt": "There's no single answer — length, language pair, and classification all affect the timeline. Here's how to think about it realistically.",
+        "date": "2026-07-15",
+        "body": [
+          "There's no single answer to how long a certified translation takes — it depends on the document's length, the language pair, and the classification you need.",
+          "A short, standard document — a birth certificate or national ID — with a common language pair is often turned around within one to two business days once our team confirms scope.",
+          "Longer documents, like contracts or multi-page academic transcripts, take longer, since every page goes through translation and then an independent review before delivery.",
+          "Notarized or sworn translations can add time, since they depend on a notary's or authorized translator's availability in addition to the translation itself.",
+          "The most useful thing you can do is message us with your document's page count and your deadline upfront. Our team will give you a realistic timeline on WhatsApp — before any work begins, and before you're committed to anything.",
+          "There's no online quote form for a reason: a person on our team actually looks at your document before quoting a timeline, rather than guessing from a form field."
+        ]
+      },
+      "choosing-a-translation-partner": {
+        "title": "How to Choose the Right Translation Partner for Legal Documents",
+        "excerpt": "Not all translation providers are equipped for legal work. Here's what to actually check before you send over a contract or court document.",
+        "date": "2026-07-22",
+        "body": [
+          "Legal documents carry consequences that a casual translation doesn't — so choosing the right partner matters more than it does for, say, a marketing brochure. Here's what to look for.",
+          "Specialist terminology. Look for translators who work specifically with legal language, not general bilingual staff. Legal terms rarely have a single obvious equivalent across languages, and a mistranslated clause can change a contract's meaning.",
+          "Independent review. Ask whether every translation goes through a second linguist before delivery. A single-pass translation, however skilled the translator, carries more risk for wording that needs to be exactly right.",
+          "Correct classification. Confirm how the provider classifies and certifies a translation — standard, certified, notarized, or sworn — and whether that classification is one the specific institution you're dealing with will actually accept.",
+          "Confidentiality. Legal documents often contain sensitive personal or commercial information. Ask directly how a provider protects your documents and who has access to them.",
+          "Verifiability. Can the receiving institution independently confirm that a delivered translation is authentic and hasn't been altered since delivery? This is exactly the gap our QR-verifiable certificate closes — every completed translation ships with one, at no extra step for you."
+        ]
+      }
+    }
+  },
   "footer": {
     "tagline": "Certified translation, verified by design.",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "sitemapHeading": "Sitemap",
+    "linksHeading": "Important links",
+    "contactHeading": "Contact",
+    "socialHeading": "Follow us"
+  },
+  "legal": {
+    "privacy": {
+      "navLabel": "Privacy Policy",
+      "title": "Privacy Policy",
+      "updated": "Last updated: August 2026",
+      "intro": "This policy explains how Bayt Languages collects, uses, and protects information in the course of providing certified translation services.",
+      "sections": [
+        {
+          "heading": "Information we collect",
+          "body": "We collect information you share with us directly — such as your name, contact details, and the documents you send for translation — through WhatsApp conversations. We also collect basic technical data (such as browser type) when you visit this website or a verification page."
+        },
+        {
+          "heading": "How we use information",
+          "body": "Information you share is used solely to scope, deliver, and support your translation, and — where you request it — to generate a digital verification certificate for the completed document."
+        },
+        {
+          "heading": "Document confidentiality",
+          "body": "Documents you send us are handled under strict confidentiality and are only accessible to the translator, reviewer, and administrative staff assigned to your job."
+        },
+        {
+          "heading": "Data retention",
+          "body": "We retain your documents and related records for as long as necessary to deliver our services and to support the ongoing validity of any verification certificate issued."
+        },
+        {
+          "heading": "Your choices",
+          "body": "You decide how your name appears on a public verification certificate — shown in full, partially masked, or hidden entirely. Contact us at any time to ask a question about your information."
+        }
+      ]
+    },
+    "terms": {
+      "navLabel": "Terms & Conditions",
+      "title": "Terms & Conditions",
+      "updated": "Last updated: August 2026",
+      "intro": "These terms govern your use of Bayt Languages' translation services and this website.",
+      "sections": [
+        {
+          "heading": "Our services",
+          "body": "Bayt Languages provides standard, certified, notarized, and sworn translation services. There is no public quotation form, file upload, or online payment on this website — every engagement begins with a direct conversation on WhatsApp."
+        },
+        {
+          "heading": "Engagement process",
+          "body": "Scope, languages, classification, timeline, and pricing are agreed directly between you and our team before any translation work begins. Competitive pricing is confirmed on request and is not published on this website."
+        },
+        {
+          "heading": "Accuracy & responsibility",
+          "body": "Every translation is completed by a specialist linguist and reviewed independently before delivery. It remains your responsibility to confirm with the receiving institution that the classification we've prepared (standard, certified, notarized, or sworn) meets its specific requirements."
+        },
+        {
+          "heading": "Verification certificates",
+          "body": "A digital verification certificate confirms that a specific translated file was issued by Bayt Languages and has not been altered since delivery. It does not certify the legal validity or acceptance of the underlying document by any third party."
+        },
+        {
+          "heading": "Revocation & expiry",
+          "body": "Bayt Languages may mark a verification record as revoked or expired for reasons communicated to the client. The terms agreed at the time of engagement continue to govern the relationship regardless of a certificate's later status."
+        },
+        {
+          "heading": "Changes to these terms",
+          "body": "We may update these terms from time to time. The current version is always published on this page."
+        }
+      ]
+    },
+    "confidentiality": {
+      "navLabel": "Confidentiality Policy",
+      "title": "Confidentiality Policy",
+      "updated": "Last updated: August 2026",
+      "intro": "Confidentiality is central to how Bayt Languages handles every document entrusted to us.",
+      "sections": [
+        {
+          "heading": "Our commitment",
+          "body": "Every document and every detail you share with us is treated as strictly confidential, from the moment you send it on WhatsApp through final delivery."
+        },
+        {
+          "heading": "Access control",
+          "body": "Only the translator, reviewer, and administrative staff directly assigned to your job can access your document. Documents are never shared internally beyond what a job requires."
+        },
+        {
+          "heading": "Visibility on verification certificates",
+          "body": "You choose how your name appears on your document's public verification page: shown in full, partially masked, or hidden entirely. Internal notes and staff identities are never shown publicly, regardless of your choice."
+        },
+        {
+          "heading": "Secure storage",
+          "body": "Documents are stored in access-controlled, private storage. Nothing is publicly listed, indexed, or searchable — a verification page only becomes reachable through its specific reference code or QR code."
+        },
+        {
+          "heading": "Third parties",
+          "body": "We do not share your documents or personal information with third parties, except where required by law."
+        }
+      ]
+    }
   }
 }

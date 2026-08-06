@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { buildLanguageAlternates } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/seo";
 import { Hero } from "@/components/marketing/Hero";
 import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { ProcessSteps } from "@/components/marketing/ProcessSteps";
@@ -32,8 +32,18 @@ const serviceIcons = [
   <StampIcon key="f" />,
 ];
 
-export function generateMetadata(): Metadata {
-  return { alternates: { languages: buildLanguageAlternates("") } };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "seo.home" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    ...buildPageMetadata(locale, ""),
+  };
 }
 
 export default async function HomePage({
@@ -51,8 +61,22 @@ export default async function HomePage({
   const processSteps = t.raw("process.steps") as FeatureItem[];
   const faqItems = t.raw("faq.items") as { question: string; answer: string }[];
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Hero />
       <FeatureGrid
         eyebrow={t("trust.eyebrow")}

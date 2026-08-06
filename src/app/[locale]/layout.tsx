@@ -28,11 +28,39 @@ const notoSansSC = Noto_Sans_SC({
   weight: ["400", "500", "700"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://baytlanguages.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://baytlanguages.com"),
+  metadataBase: new URL(siteUrl),
   title: "Bayt Languages — Certified Translation, Verified by Design",
   description:
     "Bayt Languages delivers certified, notarized, and specialist translations with a digitally verifiable certificate on every document.",
+  openGraph: {
+    siteName: "Bayt Languages",
+    type: "website",
+    images: [{ url: "/logo/bayt-languages-color.png", width: 1534, height: 512 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/logo/bayt-languages-color.png"],
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Bayt Languages",
+  url: siteUrl,
+  logo: `${siteUrl}/logo/bayt-languages-color.png`,
+  email: "info@baytlanguages.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "90th Street South, The Fifth Settlement",
+    addressLocality: "New Cairo",
+    addressCountry: "EG",
+  },
+  areaServed: "EG",
+  priceRange: "$$",
 };
 
 export function generateStaticParams() {
@@ -63,6 +91,10 @@ export default async function LocaleLayout({
       className={`${montserrat.variable} ${geistMono.variable} ${cairo.variable} ${notoSansSC.variable} h-full antialiased`}
     >
       <body className="marketing-root min-h-full bg-brand-ink text-brand-parchment">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>

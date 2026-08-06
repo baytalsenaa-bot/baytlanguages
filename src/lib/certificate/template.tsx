@@ -13,6 +13,24 @@ Font.register({
   ],
 });
 
+// Almarai has no CJK glyphs, so a document with Chinese text (title, client
+// name, description) needs Noto Sans SC registered as a separate family and
+// selected at render time — see resolveFontFamily below.
+Font.register({
+  family: "NotoSansSC",
+  fonts: [
+    { src: path.join(process.cwd(), "public/fonts/NotoSansSC-Regular.otf"), fontWeight: "normal" },
+    { src: path.join(process.cwd(), "public/fonts/NotoSansSC-Bold.otf"), fontWeight: "bold" },
+  ],
+});
+
+const CJK_RANGE = /[一-鿿㐀-䶿豈-﫿]/;
+
+function resolveFontFamily(data: CertificateData): "Almarai" | "NotoSansSC" {
+  const combined = [data.title, data.description, data.clientDisplayName].join(" ");
+  return CJK_RANGE.test(combined) ? "NotoSansSC" : "Almarai";
+}
+
 export type CertificateData = {
   referenceCode: string;
   status: string;
@@ -77,9 +95,11 @@ function Row({ label, value }: { label: string; value: string }) {
 }
 
 export function CertificateDocument(data: CertificateData) {
+  const fontFamily = resolveFontFamily(data);
+
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
+      <Page size="A4" style={[styles.page, { fontFamily }]}>
         <View style={styles.header}>
           <Text style={styles.brand}>
             Bayt Languages — Digital Translation Verification Certificate

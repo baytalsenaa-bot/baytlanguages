@@ -145,6 +145,34 @@ export function SignalIcon({ className = base }: IconProps) {
   );
 }
 
+export function BanIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className={className}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M6.5 6.5l11 11" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function ClockIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className={className}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3.5 2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function SearchXIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className={className}>
+      <circle cx="10.5" cy="10.5" r="6.5" />
+      <path d="M15.5 15.5 21 21" strokeLinecap="round" />
+      <path d="M8.5 8.5l4 4M12.5 8.5l-4 4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function FactoryIcon({ className = base }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className={className}>

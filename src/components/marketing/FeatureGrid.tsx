@@ -69,10 +69,10 @@ export function FeatureGrid({
               variants={item}
               whileHover={{ y: -4 }}
               transition={microHover}
-              className={`rounded-xl border p-6 shadow-lg shadow-black/10 transition-shadow hover:shadow-brand-gold/10 ${cardTone}`}
+              className={`group rounded-xl border p-6 shadow-lg shadow-black/10 transition-[box-shadow,border-color] hover:border-brand-gold/50 hover:shadow-brand-gold/10 ${cardTone}`}
             >
               {icons?.[index] && (
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-brand-gold/15 text-brand-gold">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-brand-gold/15 text-brand-gold transition-transform duration-200 group-hover:translate-x-0.5">
                   {icons[index]}
                 </div>
               )}

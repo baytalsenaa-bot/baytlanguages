@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { buildLanguageAlternates } from "@/lib/seo";
 import { SimpleHero } from "@/components/marketing/SimpleHero";
 import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { FinalCta } from "@/components/marketing/FinalCta";
@@ -7,6 +9,10 @@ import { ShieldCheckIcon, QrCodeIcon, LockIcon } from "@/components/marketing/ic
 type FeatureItem = { title: string; description: string };
 
 const valueIcons = [<ShieldCheckIcon key="a" />, <QrCodeIcon key="b" />, <LockIcon key="c" />];
+
+export function generateMetadata(): Metadata {
+  return { alternates: { languages: buildLanguageAlternates("/about") } };
+}
 
 export default async function AboutPage({
   params,

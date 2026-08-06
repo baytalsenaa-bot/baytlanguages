@@ -29,6 +29,7 @@ const notoSansSC = Noto_Sans_SC({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://baytlanguages.com"),
   title: "Bayt Languages — Certified Translation, Verified by Design",
   description:
     "Bayt Languages delivers certified, notarized, and specialist translations with a digitally verifiable certificate on every document.",

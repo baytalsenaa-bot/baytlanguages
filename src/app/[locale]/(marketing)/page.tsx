@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { buildLanguageAlternates } from "@/lib/seo";
 import { Hero } from "@/components/marketing/Hero";
 import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { ProcessSteps } from "@/components/marketing/ProcessSteps";
@@ -29,6 +31,10 @@ const serviceIcons = [
   <IdCardIcon key="e" />,
   <StampIcon key="f" />,
 ];
+
+export function generateMetadata(): Metadata {
+  return { alternates: { languages: buildLanguageAlternates("") } };
+}
 
 export default async function HomePage({
   params,

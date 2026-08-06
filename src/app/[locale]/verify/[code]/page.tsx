@@ -1,8 +1,13 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
 import { DownloadButton } from "./DownloadButton";
 import { RevealSeal } from "./RevealSeal";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 type VerificationView = {
   reference_code: string;

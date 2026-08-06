@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { buildLanguageAlternates } from "@/lib/seo";
 import { SimpleHero } from "@/components/marketing/SimpleHero";
 import { WhatsAppButton } from "@/components/marketing/WhatsAppButton";
 
 const MAPS_URL = "https://maps.app.goo.gl/JBj84RG7jz9eY7aH8?g_st=ic";
+
+export function generateMetadata(): Metadata {
+  return { alternates: { languages: buildLanguageAlternates("/contact") } };
+}
 
 export default async function ContactPage({
   params,

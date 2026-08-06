@@ -3,6 +3,8 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { verifyPin } from "@/lib/documents/pin";
 
 const SIGNED_URL_TTL_SECONDS = 90;
+const MAX_PIN_ATTEMPTS = 5;
+const LOCKOUT_MINUTES = 15;
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
@@ -19,12 +21,13 @@ export async function POST(request: Request) {
   // anon-facing public_verification_view never selects it.
   const { data: verification } = await supabaseAdmin
     .from("verification_records")
-    .select("id, document_id, status, pin_enabled, pin_hash")
+    .select("id, document_id, status, pin_enabled, pin_hash, pin_failed_attempts, pin_locked_until")
     .eq("reference_code", code)
     .maybeSingle();
 
   // Deliberately generic: don't distinguish "no such code" from "wrong PIN" from
-  // "not verified" in the response, to avoid handing a brute-forcer an oracle.
+  // "not verified" from "locked out" in the response, to avoid handing a
+  // brute-forcer an oracle.
   const genericError = NextResponse.json(
     { error: "This document is not available for download." },
     { status: 401 },
@@ -35,12 +38,48 @@ export async function POST(request: Request) {
   }
 
   if (verification.pin_enabled) {
+    const lockedUntil = verification.pin_locked_until
+      ? new Date(verification.pin_locked_until)
+      : null;
+
+    if (lockedUntil && lockedUntil > new Date()) {
+      return genericError;
+    }
+
     if (!pin || !verification.pin_hash) {
       return genericError;
     }
+
     const pinMatches = await verifyPin(pin, verification.pin_hash);
+
     if (!pinMatches) {
+      const attempts = verification.pin_failed_attempts + 1;
+      const lockingOut = attempts >= MAX_PIN_ATTEMPTS;
+
+      await supabaseAdmin
+        .from("verification_records")
+        .update({
+          pin_failed_attempts: lockingOut ? 0 : attempts,
+          pin_locked_until: lockingOut
+            ? new Date(Date.now() + LOCKOUT_MINUTES * 60_000).toISOString()
+            : null,
+        })
+        .eq("id", verification.id);
+
+      await supabaseAdmin.from("audit_log").insert({
+        action: lockingOut ? "pin.locked_out" : "pin.attempt_failed",
+        document_id: verification.document_id,
+        verification_id: verification.id,
+      });
+
       return genericError;
+    }
+
+    if (verification.pin_failed_attempts > 0 || lockedUntil) {
+      await supabaseAdmin
+        .from("verification_records")
+        .update({ pin_failed_attempts: 0, pin_locked_until: null })
+        .eq("id", verification.id);
     }
   }
 

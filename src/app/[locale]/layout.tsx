@@ -38,11 +38,11 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "Bayt Languages",
     type: "website",
-    images: [{ url: "/logo/bayt-languages-color.png", width: 1534, height: 512 }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/logo/bayt-languages-color.png"],
+    images: ["/og-image.png"],
   },
 };
 

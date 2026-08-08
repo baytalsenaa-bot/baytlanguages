@@ -44,8 +44,9 @@ async function handleAdminAuth(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const isLoginPage = request.nextUrl.pathname === "/admin/login";
+  const isResetPasswordPage = request.nextUrl.pathname === "/admin/reset-password";
 
-  if (!user && !isLoginPage) {
+  if (!user && !isLoginPage && !isResetPasswordPage) {
     return NextResponse.redirect(new URL("/admin/login", request.url));
   }
 

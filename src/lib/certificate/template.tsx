@@ -151,14 +151,6 @@ const styles = StyleSheet.create({
   label: { fontSize: 8, color: MUTED, letterSpacing: 0.4 },
   value: { fontSize: 9.5, color: "#1c1d21", fontWeight: 700, marginTop: 1 },
 
-  hashLabel: { fontSize: 8, color: MUTED, marginTop: 2 },
-  hashValue: {
-    fontFamily: "Courier",
-    fontSize: 7.5,
-    color: "#1c1d21",
-    marginTop: 3,
-  },
-
   legal: {
     marginTop: 10,
     fontSize: 7,
@@ -236,14 +228,6 @@ export function CertificateDocument(data: CertificateData) {
               <Cell label="Delivered" value={formatDate(data.deliveredAt)} />
               <Cell label="Certification number" value={data.certificationNumber ?? "—"} />
             </View>
-          </View>
-
-          <View style={styles.sectionCard}>
-            <Text style={styles.sectionHeading}>File integrity</Text>
-            <Text style={styles.label}>File version</Text>
-            <Text style={styles.value}>v{data.currentVersionNumber}</Text>
-            <Text style={styles.hashLabel}>SHA-256 fingerprint</Text>
-            <Text style={styles.hashValue}>{data.currentSha256Hash}</Text>
           </View>
 
           <Text style={styles.legal}>

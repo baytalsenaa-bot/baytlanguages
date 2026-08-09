@@ -191,24 +191,6 @@ export default async function VerificationPage({
           </dl>
         </section>
 
-        <section className="rounded-xl border border-brand-border bg-brand-surface p-6 shadow-lg shadow-black/10">
-          <h2 className="text-sm font-semibold text-brand-parchment">
-            {t("fileIntegrity")}
-          </h2>
-          <dl className="mt-4 space-y-3 text-sm">
-            <Field
-              label={t("currentVersion")}
-              value={`v${record.current_version_number ?? 1}`}
-            />
-            <div>
-              <dt className="text-brand-muted">{t("fingerprint")}</dt>
-              <dd className="mt-1 break-all font-mono text-xs text-brand-muted">
-                {record.current_sha256_hash}
-              </dd>
-            </div>
-          </dl>
-        </section>
-
         {record.status === "verified" && (
           <section className="space-y-4 rounded-xl border border-brand-border bg-brand-surface p-6 shadow-lg shadow-black/10 text-center">
             <DownloadButton

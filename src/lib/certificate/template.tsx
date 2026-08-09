@@ -70,7 +70,6 @@ export type CertificateData = {
 
 const NAVY = "#0d1b3d";
 const RED = "#e63946";
-const GOLD = "#b8892f";
 const MUTED = "#6b7280";
 // @react-pdf/renderer's local-path image resolution is unreliable on this
 // setup (fails silently, producing a blank image) — reading the file into a
@@ -128,13 +127,6 @@ const styles = StyleSheet.create({
   // Body
   body: { marginTop: 14 },
   statusBlock: { alignItems: "center", marginBottom: 12 },
-  eyebrow: {
-    fontSize: 8.5,
-    fontWeight: 700,
-    color: GOLD,
-    letterSpacing: 1.6,
-    marginBottom: 4,
-  },
   docTitle: {
     fontSize: 14,
     fontWeight: 700,
@@ -295,7 +287,6 @@ export function CertificateDocument(data: CertificateData) {
 
         <View style={styles.body}>
           <View style={styles.statusBlock}>
-            <Text style={styles.eyebrow}>DIGITAL TRANSLATION VERIFICATION</Text>
             <Text style={styles.docTitle}>{data.title}</Text>
             <View style={styles.statusBadgeRow}>
               <Text style={styles.statusBadge}>

@@ -1,18 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import {
-  Document,
-  Page,
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Font,
-  Svg,
-  Path,
-  Circle,
-  Rect,
-} from "@react-pdf/renderer";
+import { Document, Page, View, Text, Image, StyleSheet, Font } from "@react-pdf/renderer";
 
 // Helvetica (the react-pdf default) only has Latin glyphs — Arabic text in a
 // document title/description/client name would otherwise render as garbage
@@ -69,8 +57,8 @@ export type CertificateData = {
 };
 
 const NAVY = "#0d1b3d";
-const RED = "#e63946";
 const MUTED = "#6b7280";
+
 // @react-pdf/renderer's local-path image resolution is unreliable on this
 // setup (fails silently, producing a blank image) — reading the file into a
 // buffer ourselves and passing { data, format } sidesteps its path/fetch
@@ -82,50 +70,36 @@ function loadImage(relativePath: string) {
   };
 }
 
-const LOGO_BADGE = loadImage("public/logo/bayt-languages-badge.png");
-const LOGO_WATERMARK = loadImage("public/logo/bayt-languages-watermark.png");
+// The official company letterhead (logo, bilingual title, divider, watermark,
+// and contact footer) is used as-is as the page background — the
+// verification content below is laid out to fit inside its white body area.
+const LETTERHEAD = loadImage("public/logo/certificate-letterhead.png");
 
 const styles = StyleSheet.create({
   page: {
-    paddingTop: 28,
-    paddingBottom: 56,
-    paddingHorizontal: 40,
     fontSize: 9.5,
     fontFamily: "Almarai",
     color: "#26272b",
   },
-  watermark: {
+  background: {
     position: "absolute",
-    width: 110,
-    height: 203,
-    bottom: 64,
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  },
+  subtitle: {
+    position: "absolute",
+    top: 152,
     right: 40,
-  },
-
-  // Header / letterhead
-  headerRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
-  logo: { width: 68, height: 68 },
-  headerTextBlock: { alignItems: "flex-end" },
-  brandEn: { fontSize: 19, fontWeight: 700, color: NAVY },
-  brandAr: { fontSize: 17, fontWeight: 700, color: NAVY, marginTop: 1 },
-  certifiedLine: {
-    fontSize: 14,
-    fontWeight: 700,
-    color: RED,
-    letterSpacing: 1.2,
-    marginTop: 6,
-  },
-  certifiedSub: {
     fontSize: 8.5,
     color: MUTED,
-    marginTop: 2,
     letterSpacing: 0.6,
   },
-  dividerRow: { flexDirection: "row", alignItems: "center", marginTop: 14 },
-  dividerLine: { flex: 1, height: 1.4, backgroundColor: NAVY },
 
-  // Body
-  body: { marginTop: 14 },
+  // Body — positioned to clear the letterhead's header divider (~191pt from
+  // the top) and footer contact bar (~50pt from the bottom).
+  body: { marginTop: 208, marginBottom: 66, paddingHorizontal: 40 },
   statusBlock: { alignItems: "center", marginBottom: 12 },
   docTitle: {
     fontSize: 14,
@@ -162,6 +136,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     paddingVertical: 8,
     paddingHorizontal: 16,
+    backgroundColor: "#ffffff",
   },
   sectionHeading: {
     fontSize: 8.5,
@@ -191,24 +166,6 @@ const styles = StyleSheet.create({
     color: MUTED,
     textAlign: "center",
   },
-
-  // Footer bar (fixed)
-  footer: {
-    position: "absolute",
-    bottom: 24,
-    left: 40,
-    right: 40,
-    paddingTop: 10,
-    borderTopWidth: 1,
-    borderTopColor: "#e3e5ea",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  footerItem: { flexDirection: "row", alignItems: "center", marginHorizontal: 10 },
-  footerIcon: { marginRight: 5 },
-  footerText: { fontSize: 8, color: NAVY, fontWeight: 700 },
-  footerDivider: { width: 1, height: 10, backgroundColor: "#d6d9de", marginHorizontal: 10 },
 });
 
 function formatDate(value: string | null) {
@@ -218,41 +175,6 @@ function formatDate(value: string | null) {
     month: "long",
     day: "numeric",
   });
-}
-
-function GlobeIcon() {
-  return (
-    <Svg width="9" height="9" viewBox="0 0 24 24" style={styles.footerIcon}>
-      <Circle cx="12" cy="12" r="9.5" stroke={RED} strokeWidth={1.6} fill="none" />
-      <Path d="M2.5 12h19" stroke={RED} strokeWidth={1.6} />
-      <Path
-        d="M12 2.5c3 3 3 16 0 19M12 2.5c-3 3-3 16 0 19"
-        stroke={RED}
-        strokeWidth={1.6}
-        fill="none"
-      />
-    </Svg>
-  );
-}
-
-function EnvelopeIcon() {
-  return (
-    <Svg width="10" height="9" viewBox="0 0 24 20" style={styles.footerIcon}>
-      <Rect x="1" y="1" width="22" height="18" rx="2" stroke={RED} strokeWidth={1.6} fill="none" />
-      <Path d="M1 2.5l11 9 11-9" stroke={RED} strokeWidth={1.6} fill="none" />
-    </Svg>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <Svg width="9" height="9" viewBox="0 0 24 24" style={styles.footerIcon}>
-      <Path
-        d="M5 3h3.2l1.6 4.6-2.2 2c1.2 2.6 3.2 4.6 5.8 5.8l2-2.2 4.6 1.6V18c0 1.7-1.3 3-3 3-8.3 0-15-6.7-15-15 0-1.7 1.3-3 3-3z"
-        fill={RED}
-      />
-    </Svg>
-  );
 }
 
 function Cell({ label, value }: { label: string; value: string }) {
@@ -270,20 +192,10 @@ export function CertificateDocument(data: CertificateData) {
   return (
     <Document>
       <Page size="A4" style={[styles.page, { fontFamily }]}>
-        <Image src={LOGO_WATERMARK} style={styles.watermark} fixed />
-
-        <View style={styles.headerRow} fixed>
-          <Image src={LOGO_BADGE} style={styles.logo} />
-          <View style={styles.headerTextBlock}>
-            <Text style={styles.brandEn}>Bayt Languages</Text>
-            <Text style={styles.brandAr}>بيت اللغات</Text>
-            <Text style={styles.certifiedLine}>CERTIFIED TRANSLATION</Text>
-            <Text style={styles.certifiedSub}>Digital Verification Certificate</Text>
-          </View>
-        </View>
-        <View style={styles.dividerRow} fixed>
-          <View style={styles.dividerLine} />
-        </View>
+        <Image src={LETTERHEAD} style={styles.background} fixed />
+        <Text style={styles.subtitle} fixed>
+          Digital Verification Certificate
+        </Text>
 
         <View style={styles.body}>
           <View style={styles.statusBlock}>
@@ -339,23 +251,6 @@ export function CertificateDocument(data: CertificateData) {
             issued by Bayt Languages. Any alteration of the translated document invalidates
             this verification.
           </Text>
-        </View>
-
-        <View style={styles.footer} fixed>
-          <View style={styles.footerItem}>
-            <GlobeIcon />
-            <Text style={styles.footerText}>www.baytlanguages.com</Text>
-          </View>
-          <View style={styles.footerDivider} />
-          <View style={styles.footerItem}>
-            <EnvelopeIcon />
-            <Text style={styles.footerText}>info@baytlanguages.com</Text>
-          </View>
-          <View style={styles.footerDivider} />
-          <View style={styles.footerItem}>
-            <PhoneIcon />
-            <Text style={styles.footerText}>+20 115 424 4807</Text>
-          </View>
         </View>
       </Page>
     </Document>

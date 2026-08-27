@@ -5,6 +5,7 @@ import { createDocumentSchema } from "@/lib/validations/document";
 import { sha256Hex } from "@/lib/documents/hashing";
 import { generateReferenceCode } from "@/lib/documents/reference-code";
 import { hashPin } from "@/lib/documents/pin";
+import { sanitizeFilename } from "@/lib/documents/sanitize-filename";
 
 const MAX_REFERENCE_CODE_ATTEMPTS = 5;
 
@@ -90,7 +91,7 @@ export async function POST(request: Request) {
   }
 
   const documentId = document.id as string;
-  const storagePath = `${documentId}/v1-${file.name}`;
+  const storagePath = `${documentId}/v1-${sanitizeFilename(file.name)}`;
 
   const { error: uploadError } = await supabase.storage
     .from("documents")

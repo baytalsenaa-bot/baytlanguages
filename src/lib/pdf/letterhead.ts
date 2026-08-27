@@ -5,7 +5,7 @@ import path from "node:path";
 // setup (fails silently, producing a blank image) — reading the file into a
 // buffer ourselves and passing { data, format } sidesteps its path/fetch
 // resolver entirely.
-function loadImage(relativePath: string) {
+export function loadImage(relativePath: string) {
   return {
     data: fs.readFileSync(path.join(process.cwd(), relativePath)),
     format: "png" as const,
@@ -16,6 +16,10 @@ function loadImage(relativePath: string) {
 // and contact footer) is used as-is as the page background for every
 // generated PDF — certificates and receipts alike.
 export const LETTERHEAD = loadImage("public/logo/certificate-letterhead.png");
+
+// The official round "Certified Translation" ink stamp, used on the receipt
+// next to the signature line.
+export const RECEIPT_STAMP = loadImage("public/logo/receipt-stamp.png");
 
 // Shared vertical landmarks of the letterhead background, in PDF points on
 // an A4 page — the header divider sits ~191pt from the top, the footer

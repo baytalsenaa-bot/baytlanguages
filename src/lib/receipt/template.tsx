@@ -2,6 +2,7 @@ import { Document, Page, View, Text, Image, StyleSheet } from "@react-pdf/render
 import { resolveFontFamily } from "@/lib/pdf/fonts";
 import {
   LETTERHEAD,
+  RECEIPT_STAMP,
   LETTERHEAD_HEADER_CLEARANCE,
   LETTERHEAD_FOOTER_CLEARANCE,
   LETTERHEAD_SUBTITLE_TOP,
@@ -77,23 +78,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
   },
   pageTitle: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: 700,
     color: NAVY,
     textAlign: "center",
-    marginBottom: 10,
+    marginBottom: 6,
   },
 
-  section: { marginTop: 6 },
+  section: { marginTop: 4 },
   sectionHeading: {
     flexDirection: "row",
     alignItems: "center",
     gap: 6,
-    marginBottom: 3,
+    marginBottom: 2,
   },
-  sectionBar: { width: 3, height: 11, backgroundColor: RED },
+  sectionBar: { width: 3, height: 10, backgroundColor: RED },
   sectionHeadingText: {
-    fontSize: 9.5,
+    fontSize: 9,
     fontWeight: 700,
     color: NAVY,
   },
@@ -102,20 +103,26 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderBottomWidth: 1,
     borderBottomColor: "#e3e5ea",
-    paddingVertical: 3,
+    paddingVertical: 2,
   },
-  rowLabel: { fontSize: 8.5, color: MUTED, width: "40%" },
-  rowValue: { fontSize: 9, color: "#1c1d21", width: "58%", textAlign: "right" },
+  rowLabel: { fontSize: 8.2, color: MUTED, width: "40%" },
+  rowValue: { fontSize: 8.7, color: "#1c1d21", width: "58%", textAlign: "right" },
   rowValueEmphasis: { fontWeight: 700, color: NAVY },
 
-  notesList: { marginTop: 3 },
-  noteItem: { flexDirection: "row", marginBottom: 2 },
-  noteBullet: { fontSize: 8.5, color: RED, marginRight: 5 },
-  noteText: { fontSize: 8, color: MUTED, flex: 1, lineHeight: 1.3 },
+  notesList: { marginTop: 2 },
+  noteItem: { flexDirection: "row", marginBottom: 1 },
+  noteBullet: { fontSize: 8, color: RED, marginRight: 5 },
+  noteText: { fontSize: 7.5, color: MUTED, flex: 1, lineHeight: 1.25 },
 
-  signature: { marginTop: 16 },
-  signatureLine: { width: 160, borderTopWidth: 1, borderTopColor: "#9aa0ac" },
-  signatureLabel: { fontSize: 7.5, color: MUTED, marginTop: 3 },
+  signatureRow: {
+    marginTop: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
+  },
+  signatureLine: { width: 150, borderTopWidth: 1, borderTopColor: "#9aa0ac" },
+  signatureLabel: { fontSize: 7, color: MUTED, marginTop: 3 },
+  stamp: { width: 68, height: 68 },
 });
 
 function Row({
@@ -249,9 +256,12 @@ export function ReceiptDocument(data: ReceiptData) {
             </View>
           )}
 
-          <View style={styles.signature}>
-            <View style={styles.signatureLine} />
-            <Text style={styles.signatureLabel}>Authorized Signature</Text>
+          <View style={styles.signatureRow}>
+            <View>
+              <View style={styles.signatureLine} />
+              <Text style={styles.signatureLabel}>Authorized Signature</Text>
+            </View>
+            <Image src={RECEIPT_STAMP} style={styles.stamp} />
           </View>
         </View>
       </Page>

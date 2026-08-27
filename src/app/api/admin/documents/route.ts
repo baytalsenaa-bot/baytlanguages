@@ -8,6 +8,20 @@ import { hashPin } from "@/lib/documents/pin";
 import { sanitizeFilename } from "@/lib/documents/sanitize-filename";
 
 const MAX_REFERENCE_CODE_ATTEMPTS = 5;
+const MAX_RECEIPT_NUMBER_ATTEMPTS = 5;
+
+async function generateReceiptNumber(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  attemptOffset: number,
+) {
+  const year = new Date().getFullYear();
+  const { count } = await supabase
+    .from("receipts")
+    .select("id", { count: "exact", head: true })
+    .like("receipt_number", `BL-RCP-${year}-%`);
+  const next = (count ?? 0) + 1 + attemptOffset;
+  return `BL-RCP-${year}-${String(next).padStart(3, "0")}`;
+}
 
 export async function POST(request: Request) {
   const supabase = await createClient();
@@ -52,6 +66,13 @@ export async function POST(request: Request) {
   if (input.pinEnabled && !input.pin) {
     return NextResponse.json(
       { error: "A PIN is required when PIN protection is enabled" },
+      { status: 400 },
+    );
+  }
+
+  if (input.receiptEnabled && input.finalAmount === undefined) {
+    return NextResponse.json(
+      { error: "A final agreed amount is required when generating a receipt" },
       { status: 400 },
     );
   }
@@ -154,6 +175,50 @@ export async function POST(request: Request) {
     );
   }
 
+  let receiptNumber: string | null = null;
+
+  if (input.receiptEnabled) {
+    for (let attempt = 0; attempt < MAX_RECEIPT_NUMBER_ATTEMPTS; attempt++) {
+      const candidate = await generateReceiptNumber(supabase, attempt);
+
+      const { error: receiptError } = await supabase.from("receipts").insert({
+        document_id: documentId,
+        receipt_number: candidate,
+        status: input.receiptStatus,
+        total_character_count: input.totalCharacterCount ?? null,
+        rate_description: input.rateDescription || null,
+        base_cost: input.baseCost ?? null,
+        base_currency: input.baseCurrency || null,
+        equivalent_cost: input.equivalentCost ?? null,
+        equivalent_currency: input.equivalentCurrency,
+        discount_percent: input.discountPercent,
+        discounted_amount: input.discountedAmount ?? null,
+        final_amount: input.finalAmount,
+        amount_paid: input.amountPaid,
+        notes: input.receiptNotes || null,
+        created_by: user.id,
+      });
+
+      if (!receiptError) {
+        receiptNumber = candidate;
+        break;
+      }
+
+      // 23505 = unique_violation; regenerate and retry. Any other error is fatal.
+      if (receiptError.code !== "23505") {
+        console.error("Failed to create receipt:", receiptError);
+        return NextResponse.json({ error: "Failed to create receipt" }, { status: 500 });
+      }
+    }
+
+    if (!receiptNumber) {
+      return NextResponse.json(
+        { error: "Could not generate a unique receipt number, please retry" },
+        { status: 500 },
+      );
+    }
+  }
+
   // Audit rows are written with the service-role client only — staff sessions have no
   // insert policy on audit_log, so a compromised session can't tamper with its own trail.
   const supabaseAdmin = createAdminClient();
@@ -166,7 +231,17 @@ export async function POST(request: Request) {
       metadata: { version_number: 1 },
     },
     { actor_id: user.id, action: "verification.publish", document_id: documentId },
+    ...(receiptNumber
+      ? [
+          {
+            actor_id: user.id,
+            action: "receipt.create",
+            document_id: documentId,
+            metadata: { receipt_number: receiptNumber },
+          },
+        ]
+      : []),
   ]);
 
-  return NextResponse.json({ documentId, referenceCode }, { status: 201 });
+  return NextResponse.json({ documentId, referenceCode, receiptNumber }, { status: 201 });
 }

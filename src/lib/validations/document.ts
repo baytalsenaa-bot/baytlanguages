@@ -27,6 +27,13 @@ export const translationClassificationValues = [
   "sworn",
 ] as const;
 
+export const receiptStatusValues = [
+  "pending_payment",
+  "partially_paid",
+  "paid",
+  "cancelled",
+] as const;
+
 export const createDocumentSchema = z.object({
   clientPublicName: z.string().trim().min(1, "Client name is required"),
   clientVisibilityMode: z.enum(visibilityModeValues),
@@ -56,6 +63,20 @@ export const createDocumentSchema = z.object({
     .trim()
     .regex(/^\d{4,8}$/, "PIN must be 4–8 digits")
     .optional(),
+
+  receiptEnabled: z.coerce.boolean().default(false),
+  receiptStatus: z.enum(receiptStatusValues).default("pending_payment"),
+  totalCharacterCount: z.coerce.number().int().nonnegative().optional(),
+  rateDescription: z.string().trim().optional(),
+  baseCost: z.coerce.number().nonnegative().optional(),
+  baseCurrency: z.string().trim().optional(),
+  equivalentCost: z.coerce.number().nonnegative().optional(),
+  equivalentCurrency: z.string().trim().default("SAR"),
+  discountPercent: z.coerce.number().min(0).max(100).default(0),
+  discountedAmount: z.coerce.number().nonnegative().optional(),
+  finalAmount: z.coerce.number().nonnegative().optional(),
+  amountPaid: z.coerce.number().nonnegative().default(0),
+  receiptNotes: z.string().trim().optional(),
 });
 
 export type CreateDocumentInput = z.infer<typeof createDocumentSchema>;

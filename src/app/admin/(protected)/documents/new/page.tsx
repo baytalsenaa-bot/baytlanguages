@@ -7,6 +7,7 @@ import {
   visibilityModeValues,
   documentCategoryValues,
   translationClassificationValues,
+  receiptStatusValues,
 } from "@/lib/validations/document";
 
 const inputClass =
@@ -17,9 +18,13 @@ const fieldClass = "space-y-1";
 export default function NewDocumentPage() {
   const router = useRouter();
   const [pinEnabled, setPinEnabled] = useState(false);
+  const [receiptEnabled, setReceiptEnabled] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<{ referenceCode: string } | null>(null);
+  const [result, setResult] = useState<{
+    referenceCode: string;
+    receiptNumber: string | null;
+  } | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -41,7 +46,10 @@ export default function NewDocumentPage() {
       return;
     }
 
-    const body = (await response.json()) as { referenceCode: string };
+    const body = (await response.json()) as {
+      referenceCode: string;
+      receiptNumber: string | null;
+    };
     setResult(body);
   }
 
@@ -55,6 +63,14 @@ export default function NewDocumentPage() {
         <p className="mt-1 rounded-md border border-neutral-700 bg-neutral-900 px-4 py-3 font-mono text-lg text-neutral-100">
           {result.referenceCode}
         </p>
+        {result.receiptNumber && (
+          <>
+            <p className="mt-4 text-neutral-400">Receipt number:</p>
+            <p className="mt-1 rounded-md border border-neutral-700 bg-neutral-900 px-4 py-3 font-mono text-lg text-neutral-100">
+              {result.receiptNumber}
+            </p>
+          </>
+        )}
         <div className="mt-6 flex gap-3">
           <button
             type="button"
@@ -318,6 +334,181 @@ export default function NewDocumentPage() {
               required={pinEnabled}
               className={inputClass}
             />
+          </div>
+        )}
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-sm font-semibold text-neutral-300">Receipt (optional)</h2>
+        <label className="flex items-center gap-2 text-sm text-neutral-300">
+          <input
+            type="checkbox"
+            name="receiptEnabled"
+            value="true"
+            checked={receiptEnabled}
+            onChange={(event) => setReceiptEnabled(event.target.checked)}
+          />
+          Generate a translation cost receipt for this document
+        </label>
+        {receiptEnabled && (
+          <div className="grid grid-cols-2 gap-4">
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="receiptStatus">
+                Payment status
+              </label>
+              <select
+                id="receiptStatus"
+                name="receiptStatus"
+                className={inputClass}
+                defaultValue="pending_payment"
+              >
+                {receiptStatusValues.map((value) => (
+                  <option key={value} value={value}>
+                    {value.replace("_", " ")}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="totalCharacterCount">
+                Total character count
+              </label>
+              <input
+                id="totalCharacterCount"
+                name="totalCharacterCount"
+                type="number"
+                min={0}
+                className={inputClass}
+              />
+            </div>
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="rateDescription">
+                Rate description
+              </label>
+              <input
+                id="rateDescription"
+                name="rateDescription"
+                placeholder="e.g. 350 RMB per 1,000 characters"
+                className={inputClass}
+              />
+            </div>
+            <div />
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="baseCost">
+                Base cost
+              </label>
+              <input
+                id="baseCost"
+                name="baseCost"
+                type="number"
+                step="0.01"
+                min={0}
+                className={inputClass}
+              />
+            </div>
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="baseCurrency">
+                Base currency
+              </label>
+              <input
+                id="baseCurrency"
+                name="baseCurrency"
+                placeholder="e.g. RMB"
+                className={inputClass}
+              />
+            </div>
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="equivalentCost">
+                Equivalent cost
+              </label>
+              <input
+                id="equivalentCost"
+                name="equivalentCost"
+                type="number"
+                step="0.01"
+                min={0}
+                className={inputClass}
+              />
+            </div>
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="equivalentCurrency">
+                Equivalent currency
+              </label>
+              <input
+                id="equivalentCurrency"
+                name="equivalentCurrency"
+                defaultValue="SAR"
+                className={inputClass}
+              />
+            </div>
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="discountPercent">
+                Discount (%)
+              </label>
+              <input
+                id="discountPercent"
+                name="discountPercent"
+                type="number"
+                step="0.01"
+                min={0}
+                max={100}
+                defaultValue={0}
+                className={inputClass}
+              />
+            </div>
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="discountedAmount">
+                Discounted amount
+              </label>
+              <input
+                id="discountedAmount"
+                name="discountedAmount"
+                type="number"
+                step="0.01"
+                min={0}
+                className={inputClass}
+              />
+            </div>
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="finalAmount">
+                Final agreed amount
+              </label>
+              <input
+                id="finalAmount"
+                name="finalAmount"
+                type="number"
+                step="0.01"
+                min={0}
+                required={receiptEnabled}
+                className={inputClass}
+              />
+            </div>
+            <div className={fieldClass}>
+              <label className={labelClass} htmlFor="amountPaid">
+                Amount paid
+              </label>
+              <input
+                id="amountPaid"
+                name="amountPaid"
+                type="number"
+                step="0.01"
+                min={0}
+                defaultValue={0}
+                className={inputClass}
+              />
+            </div>
+            <div className="col-span-2 space-y-1">
+              <label className={labelClass} htmlFor="receiptNotes">
+                Notes (one per line)
+              </label>
+              <textarea
+                id="receiptNotes"
+                name="receiptNotes"
+                rows={3}
+                placeholder={"No VAT or tax has been applied.\nPayment has not yet been received."}
+                className={inputClass}
+              />
+            </div>
           </div>
         )}
       </section>

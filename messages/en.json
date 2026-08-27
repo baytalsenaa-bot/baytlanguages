@@ -304,6 +304,7 @@
     "issuedBy": "Issued by Bayt Languages",
     "download": "Download translated document",
     "downloadCertificate": "Download verification certificate (PDF)",
+    "downloadReceipt": "Download translation cost receipt (PDF)",
     "unlock": "Unlock",
     "enterPin": "Enter PIN",
     "notFoundTitle": "Verification not found",

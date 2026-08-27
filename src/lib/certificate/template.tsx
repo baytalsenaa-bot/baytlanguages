@@ -1,36 +1,11 @@
-import fs from "node:fs";
-import path from "node:path";
-import { Document, Page, View, Text, Image, StyleSheet, Font } from "@react-pdf/renderer";
-
-// Helvetica (the react-pdf default) only has Latin glyphs — Arabic text in a
-// document title/description/client name would otherwise render as garbage
-// characters. Almarai covers Arabic + Latin, so it's registered as the one
-// font for the whole certificate rather than switching per field.
-Font.register({
-  family: "Almarai",
-  fonts: [
-    { src: path.join(process.cwd(), "public/fonts/Almarai-Regular.ttf"), fontWeight: "normal" },
-    { src: path.join(process.cwd(), "public/fonts/Almarai-Bold.ttf"), fontWeight: "bold" },
-  ],
-});
-
-// Almarai has no CJK glyphs, so a document with Chinese text (title, client
-// name, description) needs Noto Sans SC registered as a separate family and
-// selected at render time — see resolveFontFamily below.
-Font.register({
-  family: "NotoSansSC",
-  fonts: [
-    { src: path.join(process.cwd(), "public/fonts/NotoSansSC-Regular.otf"), fontWeight: "normal" },
-    { src: path.join(process.cwd(), "public/fonts/NotoSansSC-Bold.otf"), fontWeight: "bold" },
-  ],
-});
-
-const CJK_RANGE = /[一-鿿㐀-䶿豈-﫿]/;
-
-function resolveFontFamily(data: CertificateData): "Almarai" | "NotoSansSC" {
-  const combined = [data.title, data.description, data.clientDisplayName].join(" ");
-  return CJK_RANGE.test(combined) ? "NotoSansSC" : "Almarai";
-}
+import { Document, Page, View, Text, Image, StyleSheet } from "@react-pdf/renderer";
+import { resolveFontFamily } from "@/lib/pdf/fonts";
+import {
+  LETTERHEAD,
+  LETTERHEAD_HEADER_CLEARANCE,
+  LETTERHEAD_FOOTER_CLEARANCE,
+  LETTERHEAD_SUBTITLE_TOP,
+} from "@/lib/pdf/letterhead";
 
 export type CertificateData = {
   referenceCode: string;
@@ -59,22 +34,6 @@ export type CertificateData = {
 const NAVY = "#0d1b3d";
 const MUTED = "#6b7280";
 
-// @react-pdf/renderer's local-path image resolution is unreliable on this
-// setup (fails silently, producing a blank image) — reading the file into a
-// buffer ourselves and passing { data, format } sidesteps its path/fetch
-// resolver entirely.
-function loadImage(relativePath: string) {
-  return {
-    data: fs.readFileSync(path.join(process.cwd(), relativePath)),
-    format: "png" as const,
-  };
-}
-
-// The official company letterhead (logo, bilingual title, divider, watermark,
-// and contact footer) is used as-is as the page background — the
-// verification content below is laid out to fit inside its white body area.
-const LETTERHEAD = loadImage("public/logo/certificate-letterhead.png");
-
 const styles = StyleSheet.create({
   page: {
     fontSize: 9.5,
@@ -90,16 +49,18 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     position: "absolute",
-    top: 152,
+    top: LETTERHEAD_SUBTITLE_TOP,
     right: 40,
     fontSize: 8.5,
     color: MUTED,
     letterSpacing: 0.6,
   },
 
-  // Body — positioned to clear the letterhead's header divider (~191pt from
-  // the top) and footer contact bar (~50pt from the bottom).
-  body: { marginTop: 208, marginBottom: 66, paddingHorizontal: 40 },
+  body: {
+    marginTop: LETTERHEAD_HEADER_CLEARANCE,
+    marginBottom: LETTERHEAD_FOOTER_CLEARANCE,
+    paddingHorizontal: 40,
+  },
   statusBlock: { alignItems: "center", marginBottom: 12 },
   docTitle: {
     fontSize: 14,
@@ -179,7 +140,7 @@ function Cell({ label, value }: { label: string; value: string }) {
 }
 
 export function CertificateDocument(data: CertificateData) {
-  const fontFamily = resolveFontFamily(data);
+  const fontFamily = resolveFontFamily(data.title, data.description, data.clientDisplayName);
 
   return (
     <Document>

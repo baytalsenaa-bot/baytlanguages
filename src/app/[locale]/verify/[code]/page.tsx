@@ -15,6 +15,7 @@ type VerificationView = {
   issued_at: string;
   pin_enabled: boolean;
   certificate_available: boolean;
+  receipt_available: boolean;
   client_display_name: string;
   client_type: string;
   title: string;
@@ -197,7 +198,7 @@ export default async function VerificationPage({
               code={record.reference_code}
               pinRequired={record.pin_enabled}
             />
-            <div>
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
               <a
                 href={`/api/verify/${record.reference_code}/certificate`}
                 target="_blank"
@@ -206,6 +207,16 @@ export default async function VerificationPage({
               >
                 {t("downloadCertificate")}
               </a>
+              {record.receipt_available && (
+                <a
+                  href={`/api/verify/${record.reference_code}/receipt`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-brand-muted underline hover:text-brand-parchment"
+                >
+                  {t("downloadReceipt")}
+                </a>
+              )}
             </div>
           </section>
         )}

@@ -304,6 +304,7 @@
     "issuedBy": "由 Bayt Languages 出具",
     "download": "下载译文文件",
     "downloadCertificate": "下载验证证书（PDF）",
+    "downloadReceipt": "下载翻译费用收据（PDF）",
     "unlock": "解锁",
     "enterPin": "请输入密码",
     "notFoundTitle": "未找到验证记录",

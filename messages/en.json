@@ -215,6 +215,201 @@
       "eyebrow": "Services",
       "title": "Translation services for every requirement",
       "subtitle": "Whichever classification your document requires — standard, certified, notarized, or sworn — our process is built to deliver it correctly the first time."
+    },
+    "moreServices": {
+      "eyebrow": "Beyond translation",
+      "title": "More ways we support growing businesses",
+      "subtitle": "Language is our foundation — these are the additional services we offer alongside it.",
+      "cta": "Learn more"
+    },
+    "categoryHero": {
+      "backLabel": "All services"
+    },
+    "categories": {
+      "legal-advisory": {
+        "title": "Legal & Corporate Advisory",
+        "shortDescription": "Contract review, drafting, and corporate documentation support.",
+        "description": "Corporate legal-support services, delivered directly or in coordination with appropriately licensed professionals where required.",
+        "items": [
+          "Corporate legal consultation",
+          "Contract review & drafting",
+          "Bilingual / trilingual contract preparation",
+          "NDA & MOU preparation",
+          "Service, distribution & agency agreements",
+          "Terms & conditions, privacy policy preparation",
+          "Corporate documentation review",
+          "Company incorporation documentation support",
+          "Trademark & IP coordination",
+          "Legal localization for foreign companies entering Arab markets"
+        ],
+        "note": "Where local law requires a licensed attorney, legal advice, representation, or regulated legal services are provided through appropriately licensed legal professionals or partner law firms."
+      },
+      "business-consulting": {
+        "title": "Business, Tax & Management Consulting",
+        "shortDescription": "Process design, tax & accounting advisory, and performance reporting.",
+        "description": "Advisory services focused on operational structure, management systems, workflows, growth, tax, and accounting.",
+        "items": [
+          "Business process analysis & improvement",
+          "Digital transformation consulting",
+          "Organizational structure & SOP design",
+          "KPI development & management reporting",
+          "Business feasibility studies & plans",
+          "Market entry studies",
+          "Corporate tax consulting & VAT advisory",
+          "Tax compliance support",
+          "Bookkeeping & accounting services",
+          "Financial statement preparation",
+          "Payroll processing support"
+        ]
+      },
+      "marketing-growth": {
+        "title": "Marketing & Business Growth",
+        "shortDescription": "Strategy, content, and campaigns for cross-border B2B growth.",
+        "description": "End-to-end marketing and commercial growth services for companies, with a strong B2B and cross-border focus.",
+        "items": [
+          "Marketing & go-to-market strategy",
+          "Market, competitor & customer research",
+          "Brand & product positioning",
+          "Sales & business development strategy",
+          "Multilingual marketing content (Arabic, Chinese, English)",
+          "SEO & search engine marketing",
+          "Social media & LinkedIn B2B marketing",
+          "Email & WhatsApp marketing strategy",
+          "Marketing analytics & dashboards",
+          "CRM strategy"
+        ]
+      },
+      "creative-design": {
+        "title": "Creative & Corporate Design",
+        "shortDescription": "Company profiles, catalogs, and multilingual corporate design.",
+        "description": "Professional visual communication for companies, products, tenders, events, and multilingual publications.",
+        "items": [
+          "Company profile & corporate catalog design",
+          "Brochures, flyers & marketing materials",
+          "Presentation & pitch deck design",
+          "Tender document design",
+          "Annual report & datasheet design",
+          "Infographics & social media designs",
+          "Exhibition & event materials",
+          "Packaging design",
+          "Brand guidelines & visual identity",
+          "Multilingual corporate design"
+        ]
+      },
+      "video-multimedia": {
+        "title": "Video & Multimedia",
+        "shortDescription": "Corporate video production, subtitling, and localization.",
+        "description": "Corporate multimedia production and localization for digital marketing, presentations, and product communication.",
+        "items": [
+          "Corporate & promotional video editing",
+          "Product videos & social media reels",
+          "Motion graphics & animated explainers",
+          "Multilingual subtitling & video localization",
+          "Voice-over & dubbing",
+          "Audio & podcast editing",
+          "Company introduction videos"
+        ]
+      },
+      "web-development": {
+        "title": "Web & Digital Development",
+        "shortDescription": "Multilingual, corporate, and e-commerce websites built to convert.",
+        "description": "Corporate web development with emphasis on multilingual businesses and cross-market digital presence.",
+        "items": [
+          "Corporate & multilingual website design",
+          "Arabic / English / Chinese websites",
+          "E-commerce & product catalog websites",
+          "Landing pages & B2B websites",
+          "UI/UX & responsive web design",
+          "Website redesign & localization",
+          "Domain, hosting & corporate email setup",
+          "Multilingual SEO",
+          "Website security & performance optimization",
+          "QR verification pages & client portals"
+        ]
+      },
+      "business-systems": {
+        "title": "Custom Business Systems",
+        "shortDescription": "Purpose-built systems for contracts, CRM, inventory, and approvals.",
+        "description": "Tailor-made digital systems designed around each client's actual workflow, departments, and operating model.",
+        "items": [
+          "Custom business management systems",
+          "Contract & document management systems",
+          "Customer management systems (CRM)",
+          "Sales, purchase & inventory management systems",
+          "Project & employee management systems",
+          "Approval workflow systems",
+          "Expense, payment & collection tracking systems",
+          "Invoice tracking systems",
+          "Client & supplier portals"
+        ],
+        "note": "We study the client's actual workflow, departments, approvals, and reporting requirements, then design a system around the business — not the other way around."
+      },
+      "data-analytics": {
+        "title": "Data Analytics & Business Intelligence",
+        "shortDescription": "Dashboards and reporting automation that turn data into decisions.",
+        "description": "Management dashboards, reporting automation, and analytical solutions that convert operational data into decisions.",
+        "items": [
+          "Custom & executive dashboards",
+          "Sales, financial & contract dashboards",
+          "Procurement & inventory dashboards",
+          "Customer & supplier analytics",
+          "KPI dashboards & management reports",
+          "Power BI & Excel dashboards",
+          "Web-based & real-time dashboards",
+          "Data cleaning, consolidation & migration",
+          "Reporting automation"
+        ]
+      },
+      "ai-automation": {
+        "title": "AI & Automation Solutions",
+        "shortDescription": "Document automation, AI assistants, and workflow automation.",
+        "description": "Automation and applied-AI solutions for documents, workflows, customer service, reporting, and internal knowledge.",
+        "items": [
+          "Business process & document automation",
+          "Automated report generation",
+          "Invoice processing automation",
+          "Contract data extraction & OCR processing",
+          "Workflow & approval automation",
+          "AI chatbots & customer support",
+          "Internal knowledge assistants",
+          "AI document search",
+          "AI translation workflows",
+          "Custom AI assistants"
+        ]
+      },
+      "corporate-documentation": {
+        "title": "Corporate Documentation & Publishing",
+        "shortDescription": "Policies, manuals, tenders, and bilingual contract formatting.",
+        "description": "Preparation, structuring, design, and publication of business documents for internal and external use.",
+        "items": [
+          "Company profile preparation",
+          "Corporate policies & SOP preparation",
+          "Employee & product manuals",
+          "Tender documentation & proposal preparation",
+          "Bilingual contract formatting",
+          "Company forms, templates & letterhead design",
+          "Invoice / quotation & purchase order templates",
+          "Certificates & digital verification documents"
+        ]
+      },
+      "china-middle-east": {
+        "title": "China – Middle East Business Services",
+        "shortDescription": "Market entry, localization, and partner search between China and the Arab world.",
+        "description": "A specialized cross-border service line connecting language, market-entry, business development, localization, and commercial support.",
+        "items": [
+          "Chinese companies entering Saudi Arabia & Egypt",
+          "Arab companies entering China",
+          "Market research & business localization",
+          "Chinese / Arabic marketing",
+          "Business matchmaking",
+          "Distributor, supplier & client search",
+          "Local partner coordination",
+          "Exhibition support & meeting interpretation",
+          "Negotiation support",
+          "Market entry consulting"
+        ],
+        "note": "This division combines translation, localization, market research, marketing, business development, interpretation, and commercial support into one cross-border solution."
+      }
     }
   },
   "contact": {

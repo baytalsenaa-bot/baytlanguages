@@ -2,11 +2,13 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { buildLanguageAlternates, siteUrl } from "@/lib/seo";
 import { blogSlugs } from "@/lib/blog";
+import { serviceCategorySlugs } from "@/lib/services";
 
 const pages = [
   "",
   "/about",
   "/services",
+  ...serviceCategorySlugs.map((slug) => `/services/${slug}`),
   "/contact",
   "/verify",
   "/blog",

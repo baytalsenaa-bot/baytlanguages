@@ -41,11 +41,12 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "认证翻译，精准专业",
+      "eyebrow": "语言、商业与数字化解决方案",
       "title": "您可以在几秒内验证的认证翻译。",
       "subtitle": "从法律合同到学术成绩单，从医疗记录到移民文件——我们翻译的每一份文件均由专业译员审校，并附带可通过二维码验证的数字证书。通过 WhatsApp 联系我们即可开始。",
       "cta": "通过 WhatsApp 开始",
       "secondaryCta": "验证文件",
+      "tickerLabel": "同时提供：",
       "transitionTagline": "语言是一座桥梁，我们以匠心搭建。",
       "mockupEyebrow": "数字验证证书",
       "mockupReferenceLabel": "验证码"
@@ -216,6 +217,7 @@
       "title": "满足各类需求的翻译服务",
       "subtitle": "无论您的文件需要哪种类型 —— 普通翻译、认证翻译、公证翻译或宣誓翻译 —— 我们的流程都能确保一次性准确交付。"
     },
+    "translationLabel": "翻译与本地化",
     "moreServices": {
       "eyebrow": "不止于翻译",
       "title": "助力企业成长的更多服务",

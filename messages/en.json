@@ -41,11 +41,12 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Certified translation, delivered with precision",
+      "eyebrow": "Language, Business & Digital Solutions",
       "title": "Certified translations you can verify in seconds.",
       "subtitle": "From legal contracts to academic transcripts, medical records to immigration paperwork — every document we translate is reviewed by a specialist linguist and delivered with a QR-verifiable digital certificate. Message us on WhatsApp to get started.",
       "cta": "Start on WhatsApp",
       "secondaryCta": "Verify a document",
+      "tickerLabel": "Also covering:",
       "transitionTagline": "Language is a bridge. We build it with craftsmanship.",
       "mockupEyebrow": "Digital Verification Certificate",
       "mockupReferenceLabel": "Reference code"
@@ -216,6 +217,7 @@
       "title": "Translation services for every requirement",
       "subtitle": "Whichever classification your document requires — standard, certified, notarized, or sworn — our process is built to deliver it correctly the first time."
     },
+    "translationLabel": "Translation & Localization",
     "moreServices": {
       "eyebrow": "Beyond translation",
       "title": "More ways we support growing businesses",

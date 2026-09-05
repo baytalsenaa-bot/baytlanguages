@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { WhatsAppIcon } from "./WhatsAppButton";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { serviceCategorySlugs } from "@/lib/services";
 
 export function Footer() {
   const t = useTranslations("nav");
@@ -10,12 +11,21 @@ export function Footer() {
   const tf = useTranslations("footer");
   const tContact = useTranslations("contact");
   const tLegal = useTranslations("legal");
+  const ts = useTranslations("services");
   const year = new Date().getFullYear();
+
+  const categories = ts.raw("categories") as Record<string, { title: string }>;
+  const serviceLinks = [
+    { href: "/services", label: ts("hero.eyebrow") },
+    ...serviceCategorySlugs.map((slug) => ({
+      href: `/services/${slug}`,
+      label: categories[slug].title,
+    })),
+  ];
 
   const sitemapLinks = [
     { href: "/", label: t("home") },
     { href: "/about", label: t("about") },
-    { href: "/services", label: t("services") },
     { href: "/blog", label: t("blog") },
     { href: "/contact", label: t("contact") },
   ];
@@ -44,7 +54,7 @@ export function Footer() {
         className="h-px w-full bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent"
       />
       <div className="mx-auto max-w-6xl px-4 py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div>
             <div className="inline-flex items-center rounded-lg bg-white px-3 py-1.5 shadow-sm">
               <Image
@@ -82,6 +92,23 @@ export function Footer() {
             </p>
             <nav className="mt-4 flex flex-col gap-3">
               {sitemapLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-brand-muted transition-colors hover:text-brand-parchment"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-brand-gold">
+              {tf("servicesHeading")}
+            </p>
+            <nav className="mt-4 flex max-h-64 flex-col gap-3 overflow-y-auto pe-2">
+              {serviceLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}

@@ -571,6 +571,128 @@
           "Confidentiality. Legal documents often contain sensitive personal or commercial information. Ask directly how a provider protects your documents and who has access to them.",
           "Verifiability. Can the receiving institution independently confirm that a delivered translation is authentic and hasn't been altered since delivery? This is exactly the gap our QR-verifiable certificate closes — every completed translation ships with one, at no extra step for you."
         ]
+      },
+      "bilingual-contract-review": {
+        "title": "When Does Your Business Need Bilingual Contract Review?",
+        "excerpt": "A translated contract and a legally sound bilingual contract aren't the same thing. Here's when the difference actually matters.",
+        "date": "2026-08-03",
+        "body": [
+          "A contract translated word-for-word can still fail you commercially — legal terms rarely map one-to-one between languages, and a clause that reads fine in translation can carry a different legal weight in the target language.",
+          "This matters most in three situations: when a contract will be signed and enforced in two different jurisdictions, when both language versions are declared equally binding, and when the agreement covers payment terms, penalties, or termination — the clauses most likely to end up in a dispute.",
+          "A bilingual contract review checks more than grammar. It confirms that defined terms are used consistently across both versions, that numbers, dates, and currencies match exactly, and that neither party can argue the two versions say different things.",
+          "If you're preparing a supplier agreement, distribution contract, or cross-border NDA, it's worth having both language versions reviewed together — not translated separately and assumed to align. Message us on WhatsApp with the contract type and languages involved, and we'll scope it directly."
+        ]
+      },
+      "signs-you-need-a-process-review": {
+        "title": "5 Signs Your Business Process Needs a Professional Review",
+        "excerpt": "Most operational problems don't announce themselves — they show up as recurring delays, rework, and \"that's just how we do it here.\"",
+        "date": "2026-08-05",
+        "body": [
+          "Operational problems rarely arrive labeled as such. They show up as small, recurring frustrations that everyone has learned to work around — which is exactly why they're worth a closer look.",
+          "Watch for these five signs: the same task takes noticeably different amounts of time depending on who does it; approvals routinely wait on one person who's hard to reach; new hires take weeks to become productive because nothing is documented; the same errors get corrected repeatedly instead of prevented; and management reports are assembled manually from scattered spreadsheets each month.",
+          "None of these individually is a crisis. Together, they usually mean the process was never designed — it accumulated, one workaround at a time, and now runs on institutional memory rather than a documented workflow.",
+          "A process review starts by mapping what actually happens today, not what the org chart says should happen, then redesigns around clear ownership, checkpoints, and reporting. Tell us which department feels the most friction and we'll walk you through what a review would look like."
+        ]
+      },
+      "localized-marketing-vs-translated-ads": {
+        "title": "Why B2B Companies Entering New Markets Need Localized Marketing, Not Just Translated Ads",
+        "excerpt": "Translating your existing campaign is the fastest way to look like an outsider in a new market. Here's what localization actually changes.",
+        "date": "2026-08-07",
+        "body": [
+          "A campaign that performs well in one market rarely performs the same way just translated into another language — the references, tone, and even the platforms your buyers actually use can all be different.",
+          "Localization starts with the buyer, not the copy: how do companies in this market actually search for and evaluate a supplier? Is the first move a LinkedIn message, a WhatsApp introduction, or a formal RFP? Getting this wrong wastes budget on the wrong channel before a single word is read.",
+          "It also means rewriting rather than translating the persuasive parts — the case for why your company specifically is the right choice often relies on comparisons, guarantees, or social proof that don't carry over directly and need to be rebuilt for local expectations.",
+          "If you're planning to enter the Arabic-, Chinese-, or English-speaking business market with an existing campaign, it's worth having it reviewed for localization gaps before launch rather than after the results come in flat. Message us with the market and we'll take a look."
+        ]
+      },
+      "company-profile-vs-catalog": {
+        "title": "Company Profile vs. Corporate Catalog: Which Does Your Business Need First?",
+        "excerpt": "They get requested for different reasons, and building the wrong one first wastes budget you'll need for the other.",
+        "date": "2026-08-10",
+        "body": [
+          "A company profile and a product catalog answer two different questions, and confusing them usually means you built the wrong document for the meeting you're actually walking into.",
+          "A company profile answers \"who are you, and can we trust you?\" — it covers your history, capabilities, certifications, and track record. It's what a new partner, bank, or tender committee asks for before they'll even look at what you sell.",
+          "A catalog answers \"what exactly can you sell me, and at what specification?\" — it's product-led, detailed, and aimed at a buyer who's already decided you're a legitimate company and now wants specifics.",
+          "If you're entering a tender process or approaching a new distributor for the first time, the profile usually needs to exist first. If you're already known and the conversation has moved to specific products, the catalog matters more. Tell us which situation you're in and we'll recommend where to start."
+        ]
+      },
+      "subtitling-vs-dubbing": {
+        "title": "Subtitling vs. Dubbing: Which Fits Your Corporate Video?",
+        "excerpt": "The right choice depends less on budget and more on where the video will actually be watched.",
+        "date": "2026-08-12",
+        "body": [
+          "The subtitling-versus-dubbing decision is usually framed as a budget question, but the more useful question is where and how the video will actually be watched.",
+          "Subtitling fits videos watched with sound on in a professional context — a product demo shared in an email, a presentation played in a meeting — where viewers expect to hear the original voice and read along. It's faster to produce and preserves the original speaker's tone.",
+          "Dubbing fits videos meant to be watched passively or on mute-first platforms — social media feeds, in-store screens, or general-audience marketing where subtitles would be skipped or unreadable at a glance.",
+          "A training video for internal staff and a 15-second social ad rarely call for the same treatment, even from the same source footage. Tell us where the video will run and we'll recommend the right format before you commit to either."
+        ]
+      },
+      "multilingual-website-beyond-google-translate": {
+        "title": "Why a Multilingual Website Needs More Than Google Translate",
+        "excerpt": "Auto-translated pages are easy to spot, and search engines can tell too. Here's what actually needs to happen for each language version.",
+        "date": "2026-08-14",
+        "body": [
+          "An auto-translated page is usually easy for a native speaker to spot within the first sentence — and it doesn't just cost you credibility with visitors, it affects how search engines rank each language version too.",
+          "A proper multilingual website needs three separate things working together: professionally translated and localized content for each language, correct technical setup (hreflang tags, localized URLs) so search engines index each version correctly, and layout that actually accommodates the language — Arabic reads right-to-left, and German or Chinese text can run considerably longer or shorter than the English original.",
+          "This is also where SEO gets missed most often: keywords people search in Arabic or Chinese aren't a direct translation of your English keywords — they require separate research in each language, not a translated version of the same list.",
+          "If you're planning a multilingual site or noticed your non-English pages barely get any traffic, that's usually a sign one of these three pieces is missing. Message us and we'll take a look at what's there."
+        ]
+      },
+      "off-the-shelf-vs-custom-systems": {
+        "title": "Off-the-Shelf vs. Custom Business Systems: How to Decide",
+        "excerpt": "The honest answer is usually neither extreme — here's a practical way to tell which way your business should lean.",
+        "date": "2026-08-17",
+        "body": [
+          "The off-the-shelf-versus-custom decision usually gets framed as a cost question, but the more reliable test is how much your actual workflow matches what the software assumes it should be.",
+          "Off-the-shelf software fits well when your process is close to how most companies in your industry already operate — standard sales pipelines, standard inventory flows. You're paying to skip building something that's already been built well many times over.",
+          "Custom makes sense when you find yourself working around the software instead of through it — maintaining a parallel spreadsheet for the approval steps it doesn't support, or exporting data weekly to build the report it can't generate natively.",
+          "A useful middle step before committing to either: map your actual approval chain, exceptions, and reporting needs on paper first. That map will make it obvious which off-the-shelf tools are close fits, and where a custom piece is worth the investment. We're happy to walk through that mapping with you before you spend on either option."
+        ]
+      },
+      "spreadsheets-to-dashboards": {
+        "title": "Turning Spreadsheets into Dashboards: Where to Start",
+        "excerpt": "Most companies don't have a data problem — they have a \"nobody has time to open twelve spreadsheets\" problem. Here's the practical first step.",
+        "date": "2026-08-19",
+        "body": [
+          "Most companies asking for a dashboard don't actually have a data shortage — they have data scattered across a dozen spreadsheets that nobody has time to open and reconcile before a Monday meeting.",
+          "The right starting point isn't the flashiest dashboard technology — it's picking the two or three decisions your management actually makes every week (which orders are late, which customers haven't paid, which product line is underperforming) and building the dashboard backward from those decisions.",
+          "That focus matters because a dashboard that tries to show everything ends up used by no one — the useful ones are narrow, load fast, and answer one question clearly at a glance.",
+          "If your team is still assembling reports manually each week, tell us what decision that report is supposed to support, and we'll recommend the simplest dashboard that actually replaces it — not the most elaborate one."
+        ]
+      },
+      "business-tasks-worth-automating": {
+        "title": "5 Repetitive Business Tasks Worth Automating First",
+        "excerpt": "Not every manual task is worth automating. These five usually pay for themselves the fastest.",
+        "date": "2026-08-21",
+        "body": [
+          "Automation projects fail most often because the first target was the most interesting task to automate, not the most valuable one. These five are usually where the return shows up fastest.",
+          "Invoice data entry — manually retyping supplier invoices into an accounting system is slow and error-prone, and it's one of the most reliable automation wins available today.",
+          "Approval routing — if requests currently get emailed to \"whoever's around\" for sign-off, a structured approval workflow removes the bottleneck of one person's inbox.",
+          "Repetitive report generation — any report assembled the same way every week or month from the same data sources is a strong automation candidate.",
+          "Document sorting and data extraction — pulling specific fields out of incoming contracts, receipts, or forms by hand is exactly the kind of task modern document-processing tools handle reliably. Tell us which of these sounds familiar and we'll assess whether it's a quick win or a bigger project."
+        ]
+      },
+      "what-goes-into-a-company-profile": {
+        "title": "What Goes Into a Professional Company Profile",
+        "excerpt": "A good company profile isn't a longer version of your homepage — it answers specific questions a serious partner will actually ask.",
+        "date": "2026-08-24",
+        "body": [
+          "A company profile is often treated as a formality — a longer, more formal version of the homepage. That's a missed opportunity, because the people who request one are usually deciding whether to trust you with a contract.",
+          "At minimum, it needs to answer: who you are and how long you've operated, what exactly you do and don't offer, who you've worked with before (without breaching confidentiality), what certifications or accreditations apply to your work, and how a new partner would actually start working with you.",
+          "The tone matters as much as the content — a profile written for a government tender committee reads differently from one written for a potential distributor, even if the underlying facts are the same.",
+          "If you're preparing to bid on a tender or approach a new partner for the first time, it's worth having your profile reviewed against exactly what that specific audience will be checking for. Message us with who it's for and we'll advise on structure."
+        ]
+      },
+      "china-market-entry-saudi-egypt": {
+        "title": "What Chinese Companies Should Know Before Entering the Saudi or Egyptian Market",
+        "excerpt": "Translation is the smallest part of market entry. Here's what actually determines whether the first year goes well.",
+        "date": "2026-08-26",
+        "body": [
+          "Companies preparing to enter the Saudi or Egyptian market often budget for translation and assume the rest will follow naturally. In practice, translation is the smallest part of what determines whether the first year goes well.",
+          "Business relationships in both markets are built more slowly and personally than in China's B2B environment — an introduction through a trusted local partner typically opens more doors than a cold outreach, however well-translated.",
+          "Regulatory and documentation requirements differ meaningfully between the two markets and from mainland China's — company registration, commercial agency rules, and required certifications each have their own local process that a generic translation doesn't address.",
+          "The companies that enter smoothly usually combine three things from day one: accurately localized (not just translated) materials, a local partner or distributor who can vouch for them, and documentation prepared to the standard the specific receiving authority expects. Tell us which market you're entering and what stage you're at, and we'll advise on what to prioritize first."
+        ]
       }
     }
   },

@@ -6,23 +6,14 @@ import { Link } from "@/i18n/navigation";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { FloatingGlyphs } from "./FloatingGlyphs";
 import { CertificateMockup } from "./CertificateMockup";
-import { ServiceTicker } from "./ServiceTicker";
-import { serviceCategorySlugs } from "@/lib/services";
 import { flyIn, scaleReveal, staggerContainer } from "@/lib/motion/tokens";
 import { useReducedMotionSafe } from "@/lib/motion/useReducedMotionSafe";
 
 export function Hero() {
   const t = useTranslations("home.hero");
-  const ts = useTranslations("services");
   const item = useReducedMotionSafe(flyIn("up"));
   const mockupItem = useReducedMotionSafe(scaleReveal);
   const container = useReducedMotionSafe(staggerContainer(0.14));
-
-  const categories = ts.raw("categories") as Record<string, { title: string }>;
-  const tickerItems = [
-    ts("translationLabel"),
-    ...serviceCategorySlugs.map((slug) => categories[slug].title),
-  ];
 
   return (
     <section className="relative overflow-hidden px-4 pt-20 pb-16 md:pt-32 md:pb-20">
@@ -46,10 +37,6 @@ export function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
             {t("eyebrow")}
           </motion.p>
-
-          <motion.div variants={item} className="mt-4">
-            <ServiceTicker label={t("tickerLabel")} items={tickerItems} />
-          </motion.div>
 
           <motion.h1
             variants={item}

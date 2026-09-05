@@ -46,10 +46,16 @@
       "subtitle": "From legal contracts to academic transcripts, medical records to immigration paperwork — every document we translate is reviewed by a specialist linguist and delivered with a QR-verifiable digital certificate. Message us on WhatsApp to get started.",
       "cta": "Start on WhatsApp",
       "secondaryCta": "Verify a document",
-      "tickerLabel": "Also covering:",
       "transitionTagline": "Language is a bridge. We build it with craftsmanship.",
       "mockupEyebrow": "Digital Verification Certificate",
       "mockupReferenceLabel": "Reference code"
+    },
+    "serviceShowcase": {
+      "eyebrow": "Comprehensive Services",
+      "title": "One partner, every service your business needs",
+      "subtitle": "From certified translation to legal advisory, marketing, technology, and beyond — explore what we offer.",
+      "cta": "Explore this service",
+      "translationDescription": "Certified, notarized, and specialist translation with QR-verifiable digital certification."
     },
     "trust": {
       "eyebrow": "Why Bayt Languages",

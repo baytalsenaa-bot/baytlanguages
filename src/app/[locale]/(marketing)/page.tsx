@@ -6,7 +6,7 @@ import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { ProcessSteps } from "@/components/marketing/ProcessSteps";
 import { VerificationTeaser } from "@/components/marketing/VerificationTeaser";
 import { SectorsMarquee } from "@/components/marketing/SectorsMarquee";
-import { ServiceCategoriesGrid } from "@/components/marketing/ServiceCategoriesGrid";
+import { ServiceShowcase, type ShowcaseItem } from "@/components/marketing/ServiceShowcase";
 import { serviceCategorySlugs } from "@/lib/services";
 import { FaqAccordion } from "@/components/marketing/FaqAccordion";
 import { FinalCta } from "@/components/marketing/FinalCta";
@@ -20,6 +20,16 @@ import {
   GraduationCapIcon,
   BriefcaseIcon,
   IdCardIcon,
+  LanguagesIcon,
+  MegaphoneIcon,
+  PaletteIcon,
+  FilmIcon,
+  CodeIcon,
+  GearIcon,
+  ChartBarIcon,
+  SparkleIcon,
+  FolderDocIcon,
+  GlobeIcon,
 } from "@/components/marketing/icons";
 
 type FeatureItem = { title: string; description: string };
@@ -33,6 +43,20 @@ const serviceIcons = [
   <IdCardIcon key="e" />,
   <StampIcon key="f" />,
 ];
+
+const categoryIcons: Record<string, React.ReactNode> = {
+  "legal-advisory": <ScaleIcon className="h-7 w-7" />,
+  "business-consulting": <BriefcaseIcon className="h-7 w-7" />,
+  "marketing-growth": <MegaphoneIcon className="h-7 w-7" />,
+  "creative-design": <PaletteIcon className="h-7 w-7" />,
+  "video-multimedia": <FilmIcon className="h-7 w-7" />,
+  "web-development": <CodeIcon className="h-7 w-7" />,
+  "business-systems": <GearIcon className="h-7 w-7" />,
+  "data-analytics": <ChartBarIcon className="h-7 w-7" />,
+  "ai-automation": <SparkleIcon className="h-7 w-7" />,
+  "corporate-documentation": <FolderDocIcon className="h-7 w-7" />,
+  "china-middle-east": <GlobeIcon className="h-7 w-7" />,
+};
 
 export async function generateMetadata({
   params,
@@ -68,11 +92,21 @@ export default async function HomePage({
     string,
     { title: string; shortDescription: string }
   >;
-  const categoryCards = serviceCategorySlugs.map((slug) => ({
-    slug,
-    title: categories[slug].title,
-    shortDescription: categories[slug].shortDescription,
-  }));
+
+  const showcaseItems: ShowcaseItem[] = [
+    {
+      slug: null,
+      title: ts("translationLabel"),
+      description: t("serviceShowcase.translationDescription"),
+      icon: <LanguagesIcon className="h-7 w-7" />,
+    },
+    ...serviceCategorySlugs.map((slug) => ({
+      slug,
+      title: categories[slug].title,
+      description: categories[slug].shortDescription,
+      icon: categoryIcons[slug],
+    })),
+  ];
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -112,12 +146,12 @@ export default async function HomePage({
         columns={3}
         tone="surface"
       />
-      <ServiceCategoriesGrid
-        eyebrow={ts("moreServices.eyebrow")}
-        title={ts("moreServices.title")}
-        subtitle={ts("moreServices.subtitle")}
-        cta={ts("moreServices.cta")}
-        categories={categoryCards}
+      <ServiceShowcase
+        eyebrow={t("serviceShowcase.eyebrow")}
+        title={t("serviceShowcase.title")}
+        subtitle={t("serviceShowcase.subtitle")}
+        cta={t("serviceShowcase.cta")}
+        items={showcaseItems}
       />
       <ProcessSteps
         eyebrow={t("process.eyebrow")}

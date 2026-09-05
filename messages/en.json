@@ -28,7 +28,7 @@
     },
     "blog": {
       "title": "Blog | Bayt Languages",
-      "description": "Practical guidance on certified, notarized, and sworn translation — written by the Bayt Languages team."
+      "description": "Practical guidance on translation, legal advisory, marketing, technology, and business consulting — written by the Bayt Languages team."
     }
   },
   "nav": {
@@ -515,8 +515,8 @@
   },
   "blog": {
     "eyebrow": "Insights",
-    "title": "Notes on certified translation",
-    "subtitle": "Practical guidance on certified, notarized, and sworn translation — written by the Bayt Languages team.",
+    "title": "Notes on language, business & digital services",
+    "subtitle": "Practical guidance on translation, legal advisory, marketing, technology, and business consulting — written by the Bayt Languages team.",
     "readMore": "Read article",
     "backToBlog": "Back to all articles",
     "posts": {

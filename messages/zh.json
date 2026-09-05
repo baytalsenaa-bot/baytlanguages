@@ -28,7 +28,7 @@
     },
     "blog": {
       "title": "博客 | Bayt Languages",
-      "description": "由 Bayt Languages 团队撰写的关于认证、公证及宣誓翻译的实用指南。"
+      "description": "由 Bayt Languages 团队撰写的关于翻译、法律顾问、市场营销、技术开发与业务咨询的实用指南。"
     }
   },
   "nav": {
@@ -515,8 +515,8 @@
   },
   "blog": {
     "eyebrow": "深度文章",
-    "title": "认证翻译相关文章",
-    "subtitle": "由 Bayt Languages 团队撰写的关于认证、公证及宣誓翻译的实用指南。",
+    "title": "关于语言、商业与数字化服务的文章",
+    "subtitle": "由 Bayt Languages 团队撰写的关于翻译、法律顾问、市场营销、技术开发与业务咨询的实用指南。",
     "readMore": "阅读文章",
     "backToBlog": "返回所有文章",
     "posts": {

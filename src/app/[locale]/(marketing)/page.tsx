@@ -6,6 +6,8 @@ import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { ProcessSteps } from "@/components/marketing/ProcessSteps";
 import { VerificationTeaser } from "@/components/marketing/VerificationTeaser";
 import { SectorsMarquee } from "@/components/marketing/SectorsMarquee";
+import { ServiceCategoriesGrid } from "@/components/marketing/ServiceCategoriesGrid";
+import { serviceCategorySlugs } from "@/lib/services";
 import { FaqAccordion } from "@/components/marketing/FaqAccordion";
 import { FinalCta } from "@/components/marketing/FinalCta";
 import {
@@ -61,6 +63,17 @@ export default async function HomePage({
   const processSteps = t.raw("process.steps") as FeatureItem[];
   const faqItems = t.raw("faq.items") as { question: string; answer: string }[];
 
+  const ts = await getTranslations("services");
+  const categories = ts.raw("categories") as Record<
+    string,
+    { title: string; shortDescription: string }
+  >;
+  const categoryCards = serviceCategorySlugs.map((slug) => ({
+    slug,
+    title: categories[slug].title,
+    shortDescription: categories[slug].shortDescription,
+  }));
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -98,6 +111,13 @@ export default async function HomePage({
         icons={serviceIcons}
         columns={3}
         tone="surface"
+      />
+      <ServiceCategoriesGrid
+        eyebrow={ts("moreServices.eyebrow")}
+        title={ts("moreServices.title")}
+        subtitle={ts("moreServices.subtitle")}
+        cta={ts("moreServices.cta")}
+        categories={categoryCards}
       />
       <ProcessSteps
         eyebrow={t("process.eyebrow")}
